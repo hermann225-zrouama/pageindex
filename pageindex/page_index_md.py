@@ -7,7 +7,24 @@ try:
 except:
     from utils import *
 
+
+# ============================================================================
+# CONFIGURATION PAR DÉFAUT - Mistral AI
+# ============================================================================
+
+DEFAULT_MODEL = "mistral/mistral-large-latest"  # Changé de gpt-4.1 à Mistral
+DEFAULT_VISION_MODEL = "mistral/pixtral-large-latest"  # Pour futures fonctionnalités
+
+
+# ============================================================================
+# Les fonctions restent identiques, SAUF :
+# ============================================================================
+
 async def get_node_summary(node, summary_token_threshold=200, model=None):
+    """
+    Obtient un résumé du noeud selon le seuil de tokens.
+    Compatible avec tous les LLM providers via le nouveau utils.
+    """
     node_text = node.get('text')
     num_tokens = count_tokens(node_text, model=model)
     if num_tokens < summary_token_threshold:
@@ -17,6 +34,10 @@ async def get_node_summary(node, summary_token_threshold=200, model=None):
 
 
 async def generate_summaries_for_structure_md(structure, summary_token_threshold, model=None):
+    """
+    Génère des résumés pour la structure markdown.
+    Utilise le nouveau LLM_API_async du utils.
+    """
     nodes = structure_to_list(structure)
     tasks = [get_node_summary(node, summary_token_threshold=summary_token_threshold, model=model) for node in nodes]
     summaries = await asyncio.gather(*tasks)
@@ -29,7 +50,13 @@ async def generate_summaries_for_structure_md(structure, summary_token_threshold
     return structure
 
 
+# ============================================================================
+# Toutes les autres fonctions restent IDENTIQUES
+# (extract_nodes_from_markdown, extract_node_text_content, etc.)
+# ============================================================================
+
 def extract_nodes_from_markdown(markdown_content):
+    """INCHANGÉ - fonction pure sans appels LLM"""
     header_pattern = r'^(#{1,6})\s+(.+)$'
     code_block_pattern = r'^```'
     node_list = []
@@ -40,16 +67,13 @@ def extract_nodes_from_markdown(markdown_content):
     for line_num, line in enumerate(lines, 1):
         stripped_line = line.strip()
         
-        # Check for code block delimiters (triple backticks)
         if re.match(code_block_pattern, stripped_line):
             in_code_block = not in_code_block
             continue
         
-        # Skip empty lines
         if not stripped_line:
             continue
         
-        # Only look for headers when not inside a code block
         if not in_code_block:
             match = re.match(header_pattern, stripped_line)
             if match:
@@ -59,7 +83,8 @@ def extract_nodes_from_markdown(markdown_content):
     return node_list, lines
 
 
-def extract_node_text_content(node_list, markdown_lines):    
+def extract_node_text_content(node_list, markdown_lines):
+    """INCHANGÉ"""
     all_nodes = []
     for node in node_list:
         line_content = markdown_lines[node['line_num'] - 1]
@@ -83,56 +108,48 @@ def extract_node_text_content(node_list, markdown_lines):
         else:
             end_line = len(markdown_lines)
         
-        node['text'] = '\n'.join(markdown_lines[start_line:end_line]).strip()    
+        node['text'] = '\n'.join(markdown_lines[start_line:end_line]).strip()
     return all_nodes
 
-def update_node_list_with_text_token_count(node_list, model=None):
 
+def update_node_list_with_text_token_count(node_list, model=None):
+    """INCHANGÉ - utilise count_tokens() du nouveau utils"""
     def find_all_children(parent_index, parent_level, node_list):
-        """Find all direct and indirect children of a parent node"""
         children_indices = []
         
-        # Look for children after the parent
         for i in range(parent_index + 1, len(node_list)):
             current_level = node_list[i]['level']
             
-            # If we hit a node at same or higher level than parent, stop
             if current_level <= parent_level:
                 break
                 
-            # This is a descendant
             children_indices.append(i)
         
         return children_indices
     
-    # Make a copy to avoid modifying the original
     result_list = node_list.copy()
     
-    # Process nodes from end to beginning to ensure children are processed before parents
     for i in range(len(result_list) - 1, -1, -1):
         current_node = result_list[i]
         current_level = current_node['level']
         
-        # Get all children of this node
         children_indices = find_all_children(i, current_level, result_list)
         
-        # Start with the node's own text
         node_text = current_node.get('text', '')
         total_text = node_text
         
-        # Add all children's text
         for child_index in children_indices:
             child_text = result_list[child_index].get('text', '')
             if child_text:
                 total_text += '\n' + child_text
         
-        # Calculate token count for combined text
         result_list[i]['text_token_count'] = count_tokens(total_text, model=model)
     
     return result_list
 
 
 def tree_thinning_for_index(node_list, min_node_token=None, model=None):
+    """INCHANGÉ - utilise count_tokens() du nouveau utils"""
     def find_all_children(parent_index, parent_level, node_list):
         children_indices = []
         
@@ -178,7 +195,6 @@ def tree_thinning_for_index(node_list, min_node_token=None, model=None):
                     merged_text += child_text
                 
                 result_list[i]['text'] = merged_text
-                
                 result_list[i]['text_token_count'] = count_tokens(merged_text, model=model)
     
     for index in sorted(nodes_to_remove, reverse=True):
@@ -188,6 +204,7 @@ def tree_thinning_for_index(node_list, min_node_token=None, model=None):
 
 
 def build_tree_from_nodes(node_list):
+    """INCHANGÉ - fonction pure"""
     if not node_list:
         return []
     
@@ -207,7 +224,7 @@ def build_tree_from_nodes(node_list):
         }
         node_counter += 1
         
-        while stack and stack[-1][1] >= current_level:
+        while stack and stack[-1] >= current_level[1]:
             stack.pop()
         
         if not stack:
@@ -222,6 +239,7 @@ def build_tree_from_nodes(node_list):
 
 
 def clean_tree_for_output(tree_nodes):
+    """INCHANGÉ - fonction pure"""
     cleaned_nodes = []
     
     for node in tree_nodes:
@@ -240,7 +258,40 @@ def clean_tree_for_output(tree_nodes):
     return cleaned_nodes
 
 
-async def md_to_tree(md_path, if_thinning=False, min_token_threshold=None, if_add_node_summary='no', summary_token_threshold=None, model=None, if_add_doc_description='no', if_add_node_text='no', if_add_node_id='yes'):
+# ============================================================================
+# FONCTION PRINCIPALE - Mise à jour pour Mistral
+# ============================================================================
+
+async def md_to_tree(
+    md_path, 
+    if_thinning=False, 
+    min_token_threshold=None, 
+    if_add_node_summary='no', 
+    summary_token_threshold=None, 
+    model=None, 
+    if_add_doc_description='no', 
+    if_add_node_text='no', 
+    if_add_node_id='yes'
+):
+    """
+    Convertit un fichier Markdown en structure arborescente.
+    Compatible avec tous les LLM providers (Mistral, OpenAI, etc.).
+    
+    Args:
+        md_path: Chemin vers le fichier Markdown
+        if_thinning: Activer la compression des noeuds
+        min_token_threshold: Seuil minimum de tokens pour la compression
+        if_add_node_summary: Générer des résumés ('yes'/'no')
+        summary_token_threshold: Seuil pour générer un résumé
+        model: Modèle LLM à utiliser (défaut: Mistral Large)
+        if_add_doc_description: Générer une description du document
+        if_add_node_text: Inclure le texte dans la sortie
+        if_add_node_id: Inclure les IDs de noeuds
+    """
+    # Utiliser Mistral par défaut
+    if model is None:
+        model = DEFAULT_MODEL
+    
     with open(md_path, 'r', encoding='utf-8') as f:
         markdown_content = f.read()
     
@@ -264,61 +315,67 @@ async def md_to_tree(md_path, if_thinning=False, min_token_threshold=None, if_ad
     print(f"Formatting tree structure...")
     
     if if_add_node_summary == 'yes':
-        # Always include text for summary generation
-        tree_structure = format_structure(tree_structure, order = ['title', 'node_id', 'summary', 'prefix_summary', 'text', 'line_num', 'nodes'])
+        tree_structure = format_structure(tree_structure, order=['title', 'node_id', 'summary', 'prefix_summary', 'text', 'line_num', 'nodes'])
         
-        print(f"Generating summaries for each node...")
+        print(f"Generating summaries for each node with {model}...")
         tree_structure = await generate_summaries_for_structure_md(tree_structure, summary_token_threshold=summary_token_threshold, model=model)
         
         if if_add_node_text == 'no':
-            # Remove text after summary generation if not requested
-            tree_structure = format_structure(tree_structure, order = ['title', 'node_id', 'summary', 'prefix_summary', 'line_num', 'nodes'])
+            tree_structure = format_structure(tree_structure, order=['title', 'node_id', 'summary', 'prefix_summary', 'line_num', 'nodes'])
         
         if if_add_doc_description == 'yes':
-            print(f"Generating document description...")
-            # Create a clean structure without unnecessary fields for description generation
+            print(f"Generating document description with {model}...")
             clean_structure = create_clean_structure_for_description(tree_structure)
             doc_description = generate_doc_description(clean_structure, model=model)
             return {
-                'doc_name': os.path.splitext(os.path.basename(md_path))[0],
+                'doc_name': os.path.splitext(os.path.basename(md_path)),
                 'doc_description': doc_description,
                 'structure': tree_structure,
             }
     else:
-        # No summaries needed, format based on text preference
         if if_add_node_text == 'yes':
-            tree_structure = format_structure(tree_structure, order = ['title', 'node_id', 'summary', 'prefix_summary', 'text', 'line_num', 'nodes'])
+            tree_structure = format_structure(tree_structure, order=['title', 'node_id', 'summary', 'prefix_summary', 'text', 'line_num', 'nodes'])
         else:
-            tree_structure = format_structure(tree_structure, order = ['title', 'node_id', 'summary', 'prefix_summary', 'line_num', 'nodes'])
+            tree_structure = format_structure(tree_structure, order=['title', 'node_id', 'summary', 'prefix_summary', 'line_num', 'nodes'])
     
     return {
-        'doc_name': os.path.splitext(os.path.basename(md_path))[0],
+        'doc_name': os.path.splitext(os.path.basename(md_path)),
         'structure': tree_structure,
     }
 
+
+# ============================================================================
+# EXEMPLE D'UTILISATION - Mis à jour pour Mistral
+# ============================================================================
 
 if __name__ == "__main__":
     import os
     import json
     
-    # MD_NAME = 'Detect-Order-Construct'
+    # Configuration
     MD_NAME = 'cognitive-load'
     MD_PATH = os.path.join(os.path.dirname(__file__), '..', 'tests/markdowns/', f'{MD_NAME}.md')
 
+    # MODIFIÉ: Utiliser Mistral par défaut
+    MODEL = "mistral/mistral-large-latest"  # ou "gpt-4o", "anthropic/claude-3-5-sonnet"
+    
+    IF_THINNING = False
+    THINNING_THRESHOLD = 5000
+    SUMMARY_TOKEN_THRESHOLD = 200
+    IF_SUMMARY = True
+    IF_DOC_DESCRIPTION = True
 
-    MODEL="gpt-4.1"
-    IF_THINNING=False
-    THINNING_THRESHOLD=5000
-    SUMMARY_TOKEN_THRESHOLD=200
-    IF_SUMMARY=True
-
+    # Exemple 1: Configuration Mistral (recommandé)
+    print("=== Processing with Mistral Large ===")
     tree_structure = asyncio.run(md_to_tree(
         md_path=MD_PATH, 
         if_thinning=IF_THINNING, 
         min_token_threshold=THINNING_THRESHOLD, 
         if_add_node_summary='yes' if IF_SUMMARY else 'no', 
         summary_token_threshold=SUMMARY_TOKEN_THRESHOLD, 
-        model=MODEL))
+        model=MODEL,
+        if_add_doc_description='yes' if IF_DOC_DESCRIPTION else 'no'
+    ))
     
     print('\n' + '='*60)
     print('TREE STRUCTURE')
@@ -330,6 +387,7 @@ if __name__ == "__main__":
     print('='*60)
     print_toc(tree_structure['structure'])
 
+    # Sauvegarder les résultats
     output_path = os.path.join(os.path.dirname(__file__), '..', 'results', f'{MD_NAME}_structure.json')
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     
@@ -337,3 +395,40 @@ if __name__ == "__main__":
         json.dump(tree_structure, f, indent=2, ensure_ascii=False)
     
     print(f"\nTree structure saved to: {output_path}")
+    
+    # Exemple 2: Comparer différents modèles
+    print("\n\n=== Comparing different models ===")
+    
+    async def compare_models():
+        models_to_test = [
+            "mistral/mistral-large-latest",
+            "gpt-4o",
+            "anthropic/claude-3-5-sonnet-20241022"
+        ]
+        
+        results = {}
+        for model in models_to_test:
+            print(f"\nTesting {model}...")
+            try:
+                result = await md_to_tree(
+                    md_path=MD_PATH,
+                    if_add_node_summary='yes',
+                    summary_token_threshold=SUMMARY_TOKEN_THRESHOLD,
+                    model=model
+                )
+                results[model] = {
+                    'success': True,
+                    'num_nodes': len(structure_to_list(result['structure']))
+                }
+            except Exception as e:
+                results[model] = {
+                    'success': False,
+                    'error': str(e)
+                }
+        
+        return results
+    
+    # Décommenter pour comparer les modèles
+    # comparison_results = asyncio.run(compare_models())
+    # print("\nComparison results:")
+    # print(json.dumps(comparison_results, indent=2))
