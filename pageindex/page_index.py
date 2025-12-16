@@ -415,11 +415,19 @@ def extract_matching_page_pairs(toc_page, toc_physical_index, start_page_index):
 
 
 def calculate_page_offset(pairs):
-    """Calcule l'offset entre numéros de page et indices physiques."""
+    """
+    Calcule l'offset entre numéros de page et indices physiques.
+    
+    Args:
+        pairs: Liste de dicts avec 'page', 'physicalindex', 'title'
+    
+    Returns:
+        int: L'offset le plus commun (mode statistique)
+    """
     differences = []
     for pair in pairs:
         try:
-            physical_index = pair['physical_index']
+            physical_index = pair['physicalindex']
             page_number = pair['page']
             difference = physical_index - page_number
             differences.append(difference)
@@ -429,13 +437,15 @@ def calculate_page_offset(pairs):
     if not differences:
         return None
     
+    # Compter les occurrences de chaque différence
     difference_counts = {}
     for diff in differences:
         difference_counts[diff] = difference_counts.get(diff, 0) + 1
     
-    most_common = max(difference_counts.items(), key=lambda x: x)[3]
+    # ✅ CORRECTION : Trouver l'offset avec le plus d'occurrences
+    most_common_offset = max(difference_counts.items(), key=lambda x: x[1])[0]
     
-    return most_common
+    return most_common_offset
 
 
 def add_page_offset_to_toc_json(data, offset):
@@ -698,6 +708,11 @@ def process_toc_with_page_numbers(toc_content, toc_page_list, page_list, toc_che
 
     offset = calculate_page_offset(matching_pairs)
     logger.info(f'offset: {offset}')
+
+    if offset is None:
+        logger.info("Could not calculate page offset, falling back to no-page-numbers mode")
+        # Fallback : traiter comme une TOC sans numéros de page
+        return process_toc_no_page_numbers(toc_content, toc_page_list, page_list, model=model, logger=logger)
 
     toc_with_page_number = add_page_offset_to_toc_json(toc_with_page_number, offset)
     logger.info(f'toc_with_page_number: {toc_with_page_number}')

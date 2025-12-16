@@ -1,0 +1,34 @@
+Q1:
+============================================================
+🎯 RÉPONSE
+============================================================
+Abonnez le client à partir du **03/12/24** (date de réouverture du branchement). L'index 136 au 01/12/24 confirme l'absence de consommation entre le 21/11 et le 03/12 [Document | Procédure Départ Client]. La fermeture du 21/11/24 clôture la période précédente, la réouverture marque le début du nouvel abonnement.
+
+Q2:
+============================================================
+🎯 RÉPONSE
+============================================================
+Abonnez le client **au 04/06/25** (date de résiliation du prédécesseur) avec l'**index 627** [20251106 Rappel métier écart consommation | Traitement en back office]. L’état des lieux sans index impose d’utiliser l’index de résiliation du prédécesseur. La dette du prédécesseur n’impacte pas la date d’abonnement [20251106 Rappel métier mutation rétroactive | Contrat de l’ancien abonné actif]. Ouvrez un dossier ARR avec mention de l’écart de consommation [20251106 Rappel métier écart consommation | Cas d’une demande d’arrivée avec remise en eau].
+
+Q3:
+============================================================
+🎯 RÉPONSE
+============================================================
+Abonnez le client à la **date du 04/07/25** (date d'appel) [Document | Traitement en back office]. La mutation doit être rétroactive si justifiée, mais sans dépasser 2 ans [Document | Mutation rétroactive v2]. Ne modifiez pas le titulaire/RID avant traitement back office [Document | Important]. Documents fournis (acte d'hérédité + index) sont valides [Succession | Documents].
+
+Q4:
+============================================================
+Abonnez le client à la date du **17/05/24** (date d'arrivée déclarée) [20251106 Rappel métier | Traitement en back office]. Utilisez l’**index de réouverture du 14/08/24** (même que celui du 30/07/24) [Document sans titre | Contexte]. Aucun justificatif n’est requis ici, car l’AT confirme la continuité de l’index. Pas de délai de prescription à appliquer.
+
+Q5:
+============================================================
+🎯 RÉPONSE
+============================================================
+Abonnez le client à la date du **07/06/22** (date d'arrivée déclarée), car elle respecte le délai de prescription de 2 ans [Rappel métier écart consommation | Traitement en back office].
+
+Sans justificatif ni index, utilisez **l'index de résiliation de l'ancien occupant** [Rappel métier écart consommation | Traitement en back office].
+
+Précisez dans le dossier qu’il s’agit d’une **remise en eau avec écart de consommation** [Rappel métier écart consommation | Cas d’une demande d’arrivée avec remise en eau].
+
+
+Q6:
