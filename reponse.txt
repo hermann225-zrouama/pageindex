@@ -1,24 +1,130 @@
-Q1:
-============================================================
-🎯 RÉPONSE
-============================================================
-Abonnez le client à partir du **03/12/24** (date de réouverture du branchement). L'index 136 au 01/12/24 confirme l'absence de consommation entre le 21/11 et le 03/12 [Document | Procédure Départ Client]. La fermeture du 21/11/24 clôture la période précédente, la réouverture marque le début du nouvel abonnement.
+# Q1:
 
-Q2:
-============================================================
-🎯 RÉPONSE
-============================================================
-Abonnez le client **au 04/06/25** (date de résiliation du prédécesseur) avec l'**index 627** [20251106 Rappel métier écart consommation | Traitement en back office]. L’état des lieux sans index impose d’utiliser l’index de résiliation du prédécesseur. La dette du prédécesseur n’impacte pas la date d’abonnement [20251106 Rappel métier mutation rétroactive | Contrat de l’ancien abonné actif]. Ouvrez un dossier ARR avec mention de l’écart de consommation [20251106 Rappel métier écart consommation | Cas d’une demande d’arrivée avec remise en eau].
+D'après le contexte fourni, votre client signale une arrivée dans les lieux le **01/12/2024**, mais l'historique des interventions techniques (AT) indique :
+- **Fermeture du branchement le 21/11/2024** (index 136)
+- **Réouverture le 03/12/2024**
+
+### **Date d'abonnement à retenir**
+La date d’**activation du contrat** doit correspondre à la **date de réouverture effective du branchement**, soit le **03/12/2024**, pour les raisons suivantes :
+1. **Principe de facturation** :
+   - Le client est redevable des consommations **à partir de la date de remise en service** (réouverture du branchement), même si son emménagement est antérieur.
+   - La fermeture du 21/11/2024 suggère un logement vacant ou une résiliation précédente (pas de consommation facturable entre le 21/11 et le 03/12).
+
+2. **Alignement avec les AT** :
+   - L’index **136** est identique à la fermeture et à la réouverture, confirmant qu’**aucune consommation n’a été enregistrée** entre ces dates.
+   - La date du **03/12/2024** est donc la seule valide pour démarrer l’abonnement.
+
+3. **Cas particulier** :
+   - Si le client conteste (ex. : "J’étais présent dès le 01/12"), **l’état des lieux ou la remise des clés** prime (cf. procédure départ client). Cependant, sans preuve écrite (ex. : contrat de location, état des lieux signé), la date technique (03/12) s’impose.
+
+### **Actions à mener**
+1. **Créer l’abonnement** avec une **date d’effet au 03/12/2024**.
+2. **Vérifier** :
+   - Que le compteur était bien **fermé à clé** entre le 21/11 et le 03/12 (pas de fraude possible).
+   - Si le client fournit un **justificatif d’emménagement** (ex. : bail, état des lieux) antérieur au 03/12, ajuster la date **uniquement sur preuve écrite**.
+3. **Informer le client** :
+   - Que la facturation débutera au **03/12/2024**, conformément aux relevés techniques.
+   - Qu’il peut fournir un justificatif pour une régularisation si nécessaire.
+
+**Source(s) :**
+- [Procédure Départ Client | Date de résiliation
+
+
+# Q2:
+D'après le contexte fourni, votre client est arrivé le **01/05** mais a appelé le **27/06**, avec une remise en eau le **28/06** (index **646**). L'ancien occupant a été résilié le **04/06** (index **627**) sans régler ses factures, et l'état des lieux ne mentionne **aucun index**.
+
+### **Date d'abonnement à appliquer**
+1. **Absence d'index sur l'état des lieux** :
+   - Vous devez utiliser **l'index de résiliation du prédécesseur** (**627** le **04/06**).
+   - La date d'abonnement doit correspondre à **la date de résiliation du prédécesseur** (**04/06**), sauf si le client fournit un justificatif avec une date/index différent.
+
+2. **Procédure à suivre** :
+   - **Ouvrir un dossier ARR avec intervention** (mentionner l'écart de consommation dans les commentaires).
+   - **Demander un justificatif au client** (ex. : photo du compteur à son arrivée).
+   - **Si aucun justificatif sous 15 jours** :
+     - Abonner le client **au 04/06 avec l'index 627**.
+     - Noter dans le dossier que l'abonnement est basé sur les données du prédécesseur (faute de justificatif).
+
+3. **Cas particulier** :
+   - Si le client conteste et fournit un justificatif ultérieur, ajuster la date/index **dans la limite de 2 ans** (prescription).
+
+**Source(s) :**
+- [Rappel métier écart consommation entre 2 abonnés v5 | Traitement en back office](contexte)
+- [Rappel métier mutation rétroactive v2 | Traitement en back office](contexte).
+
 
 Q3:
-============================================================
-🎯 RÉPONSE
-============================================================
-Abonnez le client à la **date du 04/07/25** (date d'appel) [Document | Traitement en back office]. La mutation doit être rétroactive si justifiée, mais sans dépasser 2 ans [Document | Mutation rétroactive v2]. Ne modifiez pas le titulaire/RID avant traitement back office [Document | Important]. Documents fournis (acte d'hérédité + index) sont valides [Succession | Documents].
+D'après le contexte fourni, votre client souhaite reprendre le contrat de sa mère décédée via une **mutation de titulaire** (succession). Voici la marche à suivre pour déterminer la date d'abonnement :
+
+---
+
+### **1. Date d'effet de l'abonnement**
+- **La mutation doit prendre effet à la date de réception des documents complets** (acte d'hérédité + index du jour).
+- Dans ce cas, la demande a été faite le **04/07/25** : c'est donc cette date qui sera retenue **si les documents sont valides et complets**.
+
+**À vérifier :**
+- L'**acte d'hérédité** doit être **authentique** (notarié) ou **sous seing privé** (avec cachet du notaire ou tribunal).
+- L'**index du jour** doit être **cohérent** avec la consommation réelle.
+
+---
+
+### **2. Procédure à suivre**
+1. **Ne pas modifier le titulaire existant** (comme indiqué dans les rappels métier).
+2. **Résilier le contrat au nom du prédécesseur** (sans frais) via :
+   - **ILIADE** → Sélectionner **"ARR Cas particuliers"** → Poursuivre dans **Odyssee** (si TODO présente).
+3. **Créer un nouveau contrat au nom de l'héritier** (votre client) avec :
+   - **Date d'effet = 04/07/25** (date de la demande).
+   - **Index de reprise** = celui fourni par le client.
+
+---
+
+### **3. Conditions préalables**
+- **Aucun impayé** ne doit exister sur le contrat (sinon, solder le dossier avant mutation).
+- **Pas de modification du RIB** avant la mutation (comme précisé dans les consignes).
+
+---
+
+**Source(s) :**
+- [Rappel métier - Succession et modification titulaire v4 | Section "Cas 1 : la succession est en cours"](contexte)
+- [Rappel métier - Suppression d’un titulaire](contexte) (pour la procédure ILIADE/Odyssee).
+
 
 Q4:
 ============================================================
-Abonnez le client à la date du **17/05/24** (date d'arrivée déclarée) [20251106 Rappel métier | Traitement en back office]. Utilisez l’**index de réouverture du 14/08/24** (même que celui du 30/07/24) [Document sans titre | Contexte]. Aucun justificatif n’est requis ici, car l’AT confirme la continuité de l’index. Pas de délai de prescription à appliquer.
+d'après le contexte fourni, votre client a emménagé le **17/05/24** mais a signalé son arrivée tardivement (**14/08/24**), avec un branchement fermé le **30/07/24** puis réouvert le **14/08/24** sans changement d'index. Voici la marche à suivre pour son abonnement :
+
+---
+
+### **1. Date d'abonnement à retenir**
+- **Date d'effet de l'abonnement** : **17/05/24** (date d'emménagement déclarée par le client).
+  - *Justification* : La procédure nationale précise que l'abonnement doit être rétroactif à la date d'entrée dans les lieux, même en cas de signalement tardif (sauf si fraude avérée, non mentionnée ici).
+
+---
+
+### **2. Index à utiliser**
+- **Index à enregistrer** : **L'index relevé lors de la réouverture du branchement le 14/08/24** (identique à celui du 30/07/24).
+  - *Conditions* :
+    - **Pas de relève confiance** applicable (car pas d'index transmis par le client à son arrivée, et pas de relève cohérente).
+    - **Pas de RDV de contrôle** nécessaire ici, car :
+      - L'index n'est pas >10 m³ par rapport à l'ancien occupant (non précisé, mais pas de mention d'incohérence).
+      - Le branchement a été fermé puis réouvert avec le **même index**, ce qui suggère une absence de consommation pendant la période de fermeture.
+
+---
+
+### **3. Étapes à suivre**
+1. **Créer le dossier d'arrivée (ARR)** :
+   - Utiliser la fonction **"mutation individuelle"** dans Odyssee pour générer automatiquement le dossier ARR.
+   - Vérifier l'absence de **Dossier ASI en cours** (sinon, le traiter en priorité).
+
+2. **Saisir les informations** :
+   - **Date d'effet** : **17/05/24**.
+   - **Index de départ** : **Index du 14/08/24** (réouverture du branchement).
+   - **Type de relève** : Cocher **"Relevé client"** (même si transmis tardivement) ou **"Relevé estimé"** si l'index semble incohérent (à justifier dans les notes).
+
+3. **Vérifications complémentaires** :
+   - Consulter l'**EMC (État des Mouvements Clients)** dans TPMC pour confirmer l'historique du branchement (fermeture/réouverture).
+   - Si l'index du 14/0
+
 
 Q5:
 ============================================================

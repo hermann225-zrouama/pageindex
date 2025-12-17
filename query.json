@@ -1,0 +1,23 @@
+{
+    "queries":[
+        "Mon client a appelé le 2/12/24, il me dit qu'il est arrivé le 01/12/24 à index 136. Quand je consulte les AT, le branchement a été fermé le 21/11/24 avec un index de 136, et réouvert le 03/12/24. à quelle date dois-je l'abonner ?",
+        
+        "Mon client a appelé le 27/06, il est arrivé le 01/05 . Pas d'index. Je consulte les AT : branchement fermé le 27/06 , et réouvert le 28/06 IND 646. Le prédécesseur est résilié le 04/06 IND 627 sans payer ses dernières factures.L'état des lieux fourni ne précise pas l'index. à quelle date dois-je l'abonner ?",
+        
+        "Mon client a appelé le 04/07/25, il me dit qu'il souhaite reprendre le contrat de sa mère décédée. Il nous fourni l'index du jour et un acte d'hérédité. a quelle date dois-je l'abonner ?",
+        
+        "Mon client a appelé le 14/08/24, il me dit qu'il est arrivé le 17/05/24. Pas d'index. Quand je consulte les AT, le branchement a été fermé le 30/07/24, et réouvert le 14/08/24, avec le même index. à quelle date dois-je l'abonner ?",
+        
+        "Mon client a appelé le 7/08/25, il me dit qu'il est arrivé le 07/06/22. Pas d'index. Quand je consulte les AT, le branchement a été fermé le 7/08/25, et réouvert le 8/08/25. à quelle date dois-je l'abonner ?",
+        
+        "Mon client a appelé le 19/06/25, il me dit qu'il est arrivé le 18/06/24 à index 0. Quand je consulte le compte, je vois que le branchement est fermé depuis la pose du compteur et réouvert le 20/06/25. à quelle date dois-je l'abonner ?",
+        
+        "Mon client a appelé le 23/07/25, il me dit qu'il est arrivé le 21/06/25 à index 1474. Quand je consulte les AT, le branchement a été fermé le 23/07/25, et réouvert le même jour à index 1494. à quelle date dois-je l'abonner ?",
+        
+        "Mon client a appelé le 20/10/25, il me dit qu'il est arrivé le 15/01/25 à index de 1356. Le branchement est ouvert. Le prédécésseur a résilié son contrat le 30/05/25 avec index de 1422 et a réglé sa facture de solde. à quelle date dois-je l'abonner ?",
+        
+        "Client nous contacte le 25/10/25 pour résilier son contrat et nous fournis un index du jour de 78. Le client à une dette de 550€ et un échéancier de paiement mensuel allant jusqu'en mars 2026. que dois je faire ?",
+        
+        "Le client appelle le 21/10/25 et souhaite résilier son contrat à la date du 23/09/2025 et nous envoie un état des lieux sortant ainsi qu’une photo du compteur au 23/09/25. Que dois-je faire ?"
+    ]
+}

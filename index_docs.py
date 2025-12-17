@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from typing import List, Dict, Any, Tuple
 from mistralai import Mistral
 
-MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY", "")
+MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY", "rUqtUW7Az9sYVdRQI3Lo2Y6QWdIrVp4b")
 EMBED_MODEL = "mistral-embed"
 
 DATA_DIR = "data"

@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from typing import List, Dict, Any, Tuple, Set
 from mistralai import Mistral
 
-MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY", "")
+MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY", "rUqtUW7Az9sYVdRQI3Lo2Y6QWdIrVp4b")
 EMBED_MODEL = "mistral-embed"
 LLM_MODEL = "mistral-large-latest"
 
@@ -73,10 +73,10 @@ def expand_query(query: str, client: Mistral, num_variants: int = 2) -> List[str
     """Génère des variantes de question."""
     prompt = f"""Génère {num_variants} reformulations courtes:
 
-Question: {query}
+    Question: {query}
 
-Reformulations:
-1."""
+    Reformulations:
+    1."""
 
     response = client.chat.complete(
         model=LLM_MODEL,
@@ -109,7 +109,7 @@ def load_doc_structure(doc_id: str) -> Dict[str, Any]:
                 if all_files[doc_idx] == fname:
                     return doc
     return None
-
+                                  
 
 def compute_doc_scores(chunk_scores: List[Tuple[ChunkMeta, float]]) -> Dict[str, float]:
     """DocScore = (1 / sqrt(N+1)) * sum_n ChunkScore(n)"""
@@ -226,27 +226,27 @@ ID: {doc_sum['doc_id']}
     
     system_prompt = """Tu es un expert en sélection de documents.
 
-Identifie:
-1. **PRIMARY**: LE document le plus spécifique et pertinent (1 seul)
-2. **FALLBACK**: 1 document de contexte général (optionnel, seulement si vraiment utile)
+    Identifie:
+    1. **PRIMARY**: LE document le plus spécifique et pertinent (1 seul)
+    2. **FALLBACK**: 1 document de contexte général (optionnel, seulement si vraiment utile)
 
-Règles:
-- PRIMARY = document spécialisé qui traite DIRECTEMENT du sujet
-- FALLBACK = contexte général/procédure de base (seulement si nécessaire)
-- Si un seul doc suffit, ne mets pas de FALLBACK"""
+    Règles:
+    - PRIMARY = document spécialisé qui traite DIRECTEMENT du sujet
+    - FALLBACK = contexte général/procédure de base (seulement si nécessaire)
+    - Si un seul doc suffit, ne mets pas de FALLBACK"""
 
     user_prompt = f"""Question: {query}
 
-Documents:
-{docs_text}
+        Documents:
+        {docs_text}
 
-JSON:
-{{
-    "keywords": ["mot-clé1", "mot-clé2"],
-    "primary_docs": ["doc_id_X"],
-    "fallback_docs": ["doc_id_Y"],
-    "reasoning": "Justification courte"
-}}"""
+        JSON:
+        {{
+            "keywords": ["mot-clé1", "mot-clé2"],
+            "primary_docs": ["doc_id_X"],
+            "fallback_docs": ["doc_id_Y"],
+            "reasoning": "Justification courte"
+        }}"""
 
     response = client.chat.complete(
         model=LLM_MODEL,
@@ -265,6 +265,7 @@ JSON:
         reasoning = result.get("reasoning", "")
         keywords = result.get("keywords", [])
         
+        print(f"\n Primary docs: {primary}")
         print(f"\n🔑 Mots-clés: {', '.join(keywords)}")
         print(f"💭 Raisonnement: {reasoning}")
         
@@ -545,20 +546,21 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Query v6 - Contexte minimal, réponses structurées")
     parser.add_argument("--query", type=str, required=True)
     parser.add_argument("--chunks-per-primary", type=int, default=4, help="Chunks du doc principal (3-5 recommandé)")
-    parser.add_argument("--chunks-per-fallback", type=int, default=3, help="Chunks du doc fallback (2-3 recommandé)")
+    parser.add_argument("--chunks-per-fallback", type=int, default=0, help="Chunks du doc fallback (2-3 recommandé)")
     parser.add_argument("--max-chunk-length", type=int, default=500, help="Longueur max par chunk (400-600)")
     parser.add_argument("--no-hyde", action="store_true")
     parser.add_argument("--no-expansion", action="store_true")
     args = parser.parse_args()
 
-    res = answer_query_v6(
-        args.query,
-        chunks_per_primary=args.chunks_per_primary,
-        chunks_per_fallback=args.chunks_per_fallback,
-        max_chunk_length=args.max_chunk_length,
-        use_hyde=not args.no_hyde,
-        use_query_expansion=not args.no_expansion
-    )
+    if args.query:
+        res = answer_query_v6(
+            args.query,
+            chunks_per_primary=args.chunks_per_primary,
+            chunks_per_fallback=args.chunks_per_fallback,
+            max_chunk_length=args.max_chunk_length,
+            use_hyde=not args.no_hyde,
+            use_query_expansion=not args.no_expansion
+        )
     
     print("\n" + "="*60)
     print("🎯 RÉPONSE")
