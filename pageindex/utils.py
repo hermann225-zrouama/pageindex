@@ -1,3 +1,4 @@
+# utils.py
 import litellm
 from litellm import completion, acompletion
 import logging
@@ -28,6 +29,62 @@ ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 # Configuration LiteLLM
 litellm.drop_params = True
 litellm.set_verbose = False
+
+
+
+def clean_llm_prefix(text: str) -> str:
+    """
+    Supprime les préfixes communs des réponses LLM Vision.
+
+    Args:
+        text: Texte brut de la réponse LLM
+
+    Returns:
+        Texte nettoyé sans préfixe
+    """
+    if not text:
+        return text
+
+    # Liste des préfixes à supprimer
+    prefixes = [
+        "Sure, here is the extracted text from the image:",
+        "Here is the extracted text from the image:",
+        "Sure, here is the text:",
+        "Here is the text:",
+        "Sure, here's the extracted text:",
+        "Here's the extracted text:",
+    ]
+
+    text = text.strip()
+
+    # Supprimer le préfixe s'il existe
+    for prefix in prefixes:
+        if text.startswith(prefix):
+            text = text[len(prefix):].strip()
+            break
+
+    # Supprimer les séparateurs markdown (---)
+    lines = text.split('\n')
+    cleaned_lines = []
+    skip_next_separator = True
+
+    for line in lines:
+        stripped = line.strip()
+        # Ignorer les lignes de séparation au début
+        if stripped == '---' or stripped == '------':
+            if not skip_next_separator:
+                cleaned_lines.append(line)
+            continue
+        else:
+            skip_next_separator = False
+            cleaned_lines.append(line)
+
+    # Supprimer les séparateurs à la fin
+    while cleaned_lines and cleaned_lines[-1].strip() in ['---', '------']:
+        cleaned_lines.pop()
+
+    return '\n'.join(cleaned_lines).strip()
+
 
 # ============================================================================
 # TOKEN COUNTING - Multi-provider support (INCHANGÉ)
@@ -382,36 +439,24 @@ def extract_text_from_pdf_page_with_vision(
     zoom: float = 2.0,
     api_key: Optional[str] = None
 ) -> str:
-    """
-    Extract text/information from a PDF page using Vision LLM [web:20][web:30].
-    
-    Args:
-        pdf_path: Path to PDF file or BytesIO object
-        page_num: Page number (0-indexed)
-        model: Vision model to use
-        prompt: Custom prompt (default: extract all text)
-        zoom: Zoom factor for image quality
-        api_key: Optional API key
-    
-    Returns:
-        Extracted text or information
-    """
+    """Extract text/information from a PDF page using Vision LLM."""
     if prompt is None:
-        prompt = """Extract all text from this image, maintaining the original structure and formatting. 
-        Include all headings, paragraphs, lists, tables, and any other text content."""
-    
-    # Convert page to base64
-    base64_image = pdf_page_to_base64(pdf_path, page_num, zoom=zoom, image_format="png")
-    
-    # Call vision LLM
-    response = Vision_LLM_API(
+        prompt = "Extract all text from this image, maintaining the original structure and formatting. Include all headings, paragraphs, lists, tables, and any other text content."
+
+    base64_image = pdf_page_to_base64(pdf_path, page_num, zoom=zoom, image_format='png')
+
+    response = VisionLLMAPI(
         model=model,
         prompt=prompt,
         image_input=base64_image,
         api_key=api_key
     )
-    
-    return response
+
+    # ✅ AJOUT : Nettoyer le préfixe LLM
+    cleaned_response = clean_llm_prefix(response)
+
+    return cleaned_response
+
 
 
 def LLM_API_with_finish_reason(model, prompt, chat_history=None, temperature=0.0):
@@ -506,23 +551,24 @@ async def extract_text_from_pdf_page_with_vision_async(
     zoom: float = 2.0,
     api_key: Optional[str] = None
 ) -> str:
-    """
-    Async version of PDF page extraction with Vision LLM [web:20][web:30].
-    """
+    """Async version of PDF page extraction with Vision LLM."""
     if prompt is None:
-        prompt = """Extract all text from this image, maintaining the original structure and formatting. 
-        Include all headings, paragraphs, lists, tables, and any other text content."""
-    
-    base64_image = pdf_page_to_base64(pdf_path, page_num, zoom=zoom, image_format="png")
-    
+        prompt = "Extract all text from this image, maintaining the original structure and formatting. Include all headings, paragraphs, lists, tables, and any other text content."
+
+    base64_image = pdf_page_to_base64(pdf_path, page_num, zoom=zoom, image_format='png')
+
     response = await Vision_LLM_API_async(
         model=model,
         prompt=prompt,
         image_input=base64_image,
         api_key=api_key
     )
-    
-    return response
+
+    # ✅ AJOUT : Nettoyer le préfixe LLM
+    cleaned_response = clean_llm_prefix(response)
+
+    return cleaned_response
+
 
 
 def extract_text_from_pdf_pages_with_vision(
@@ -1070,30 +1116,104 @@ def add_preface_if_needed(data: list) -> list:
 # STRUCTURE POST-PROCESSING UTILITIES
 # ============================================================================
 
-def post_processing(structure: list, end_physical_index: int):
+
+def clean_structure_summaries(structure):
     """
-    Post-process structure to add start_index and end_index, then convert to tree.
+    Nettoie les summaries pour éviter la duplication.
+
+    Règles:
+    - Si un nœud a des enfants (nodes), son 'text' est supprimé (il est dupliqué dans les enfants)
+    - Si un nœud n'a pas d'enfants, garder 'text' et 'summary'
+    - Si text == summary, garder uniquement 'text'
+
+    Args:
+        structure: Structure arborescente
+
+    Returns:
+        Structure nettoyée
     """
-    # First convert page_number to start_index in flat list
-    for i, item in enumerate(structure):
-        item['start_index'] = item.get('physical_index')
-        if i < len(structure) - 1:
-            if structure[i + 1].get('appear_start') == 'yes':
-                item['end_index'] = structure[i + 1]['physical_index'] - 1
-            else:
-                item['end_index'] = structure[i + 1]['physical_index']
+    if isinstance(structure, dict):
+        # Si le nœud a des enfants
+        if 'nodes' in structure and structure['nodes']:
+            # Supprimer le texte complet (il sera dans les enfants)
+            structure.pop('text', None)
+            # Garder prefix_summary si présent
+            # Nettoyer récursivement les enfants
+            structure['nodes'] = clean_structure_summaries(structure['nodes'])
         else:
-            item['end_index'] = end_physical_index
-    
-    tree = list_to_tree(structure)
-    if len(tree) != 0:
-        return tree
-    else:
-        # Remove appear_start
-        for node in structure:
-            node.pop('appear_start', None)
-            node.pop('physical_index', None)
+            # Nœud feuille : vérifier si text == summary
+            if structure.get('text') == structure.get('summary'):
+                # Supprimer le summary (redondant)
+                structure.pop('summary', None)
+
         return structure
+
+    elif isinstance(structure, list):
+        return [clean_structure_summaries(item) for item in structure]
+
+    return structure
+
+
+# ============================================================================
+# MODIFICATION 2 : Remplacer postprocessing() complètement (ligne ~1400)
+# ============================================================================
+
+def postprocessing(structure: list, end_physical_index: int):
+    """
+    Post-traite la structure pour ajouter start_index et end_index,
+    puis convertit en arbre hiérarchique.
+
+    Args:
+        structure: Liste plate de sections avec physical_index
+        end_physical_index: Index de la dernière page du document
+
+    Returns:
+        Structure arborescente avec start_index et end_index corrects
+    """
+    if not structure:
+        return []
+
+    # ✅ CORRECTION : Calculer correctement end_index
+    for i, item in enumerate(structure):
+        # start_index = physical_index de la section
+        item['start_index'] = item.get('physical_index')
+
+        if i < len(structure) - 1:
+            # ✅ FIX : end_index = page avant le début de la section suivante
+            next_start = structure[i + 1].get('physical_index')
+            if next_start is not None:
+                item['end_index'] = next_start - 1
+            else:
+                # Si la section suivante n'a pas de physical_index, chercher plus loin
+                found_next = False
+                for j in range(i + 2, len(structure)):
+                    if structure[j].get('physical_index') is not None:
+                        item['end_index'] = structure[j].get('physical_index') - 1
+                        found_next = True
+                        break
+                if not found_next:
+                    item['end_index'] = end_physical_index
+        else:
+            # Dernière section : va jusqu'à la fin du document
+            item['end_index'] = end_physical_index
+
+    # ✅ CORRECTION : Nettoyer les champs temporaires
+    for node in structure:
+        node.pop('appear_start', None)
+        node.pop('physical_index', None)
+
+    # Convertir la liste plate en arbre hiérarchique
+    tree = list_to_tree(structure)
+
+    # ✅ NOUVEAU : Nettoyer les summaries dupliqués
+    tree = clean_structure_summaries(tree)
+
+    if len(tree) == 1:
+        return tree[0]
+    elif len(tree) == 0:
+        return []
+    else:
+        return tree
 
 
 def clean_structure_post(data):

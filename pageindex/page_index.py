@@ -1,3 +1,4 @@
+# page_index.py
 """
 Document Structure Extraction Module
 Utilise Mistral AI et Vision LLM par défaut pour l'extraction de structure de documents PDF
@@ -576,9 +577,16 @@ def generate_toc_continue(toc_content, part, model=None):
 def generate_toc_init(part, model=None):
     """
     Génère la structure initiale depuis une première partie du document.
+
+    Args:
+        part: Texte du document (string) ou liste de textes
+        model: Modèle LLM à utiliser
+
+    Returns:
+        Liste de dictionnaires avec structure, title, physical_index
     """
     print('start generate_toc_init')
-    
+
     prompt = """You are an expert in extracting hierarchical tree structure, your task is to generate the tree structure of the document.
 
 The structure variable is the numeric system which represents the index of the hierarchy section in the table of contents.
@@ -586,29 +594,30 @@ For example, the first section has structure index "1", the first subsection has
 
 For the title, you need to extract the original title from the text, only fix the space inconsistency.
 
-The provided text contains tags like <physical_index_X> and </physical_index_X> to indicate the start and end of page X.
-For the physical_index, you need to extract the physical index of the start of the section from the text. Keep the <physical_index_X> format.
+The provided text contains tags like <physical_index=X> and </physical_index=X> to indicate the start and end of page X.
+For the physical_index, you need to extract the physical index of the start of the section from the text. Keep the <physical_index=X> format.
 
 The response should be in the following format.
 [
-    {"structure": "structure index, x.x.x" (string), "title": "title of the section, keep the original title", "physical_index": "<physical_index_X>" (keep the format)},
+    {"structure": "structure index, x.x.x" (string), "title": "title of the section, keep the original title", "physical_index": "<physical_index=X>" (keep the format)},
     ...
 ]
 
 Directly return the final JSON structure. Do not output anything else.
 """
-    
-    # ✅ CORRECTION: Vérifier si 'part' est une liste
+
+    # ✅ CORRECTION : Gérer correctement le cas où part est une liste
     if isinstance(part, list):
-        # Prendre le premier élément
+        # Si c'est une liste, prendre le premier élément
         text_content = part[0] if part else ""
     else:
+        # Sinon utiliser directement
         text_content = part
-    
+
     prompt = prompt + '\nGiven text\n:' + text_content
-    
+
     response, finish_reason = LLM_API_with_finish_reason(model=model, prompt=prompt)
-    
+
     if finish_reason == 'finished':
         return extract_json(response)
     else:
