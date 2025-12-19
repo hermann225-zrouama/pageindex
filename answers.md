@@ -1,43 +1,52 @@
 # Résultats du Questionnaire
 
-**Date:** 2025-12-17 12:23:11
+**Date:** 2025-12-18 17:32:37
 
-**Nombre de questions:** 10
+**Nombre de questions:** 13
 
 ---
 
 ## Question 1
 
-**Query:** Mon client a appelé le 2/12/24, il me dit qu'il est arrivé le 01/12/24 à index 136. Quand je consulte les AT, le branchement a été fermé le 21/11/24 avec un index de 136, et réouvert le 03/12/24. à quelle date dois-je l'abonner ?
+**Query:** Mme YYYY envoie le message suivant : « Bonjour, Je vous informe avoir déménagé le 01 août 2025 et vous transmets les documents attestant  que je n’occupe plus le logement. Je vous remercie de bien vouloir procéder à la résiliation de mon contrat et de ne plus me  facturer après cette date. Cordialement, Mme YYYY Mail : MAIL123@MAIL »
 
 ### Réponse
 
-D'après le contexte fourni, votre client a signalé une arrivée le **01/12/2024** avec un index de **136**, tandis que les **AT (Accès Techniques)** indiquent :
-- **Fermeture du branchement** : **21/11/2024** (index 136)
-- **Réouverture du branchement** : **03/12/2024**
+**D'après le contexte fourni, Mme YYYY demande la résiliation de son contrat suite à son déménagement le 01/08/2025, avec transmission des justificatifs de départ.**
 
-### **Date d'abonnement à retenir**
-1. **Principe général** :
-   - L'abonnement doit couvrir la **période effective de consommation**, c'est-à-dire à partir de la **date de réouverture du branchement** (sauf si le client prouve une occupation antérieure).
-   - **L'index 136** (identique à la fermeture) suggère qu'**aucune consommation n'a eu lieu entre le 21/11 et le 03/12**.
+### **Étapes à suivre pour traiter la demande**
 
-2. **Analyse des dates** :
-   - **21/11/2024** : Fermeture (index 136) → **Pas de consommation possible**.
-   - **01/12/2024** : Date déclarée par le client (arrivée). **À vérifier** :
-     - Si le client était **physiquement présent** avant le 03/12, une **régularisation** peut être nécessaire (ex. : facturation à partir du 01/12).
-     - Si le client **n'a pas consommé** (pas d'usage d'eau), la date de réouverture (**03/12/2024**) prime.
-   - **03/12/2024** : Réouverture → **Date officielle de début d'abonnement** (sauf preuve contraire).
+#### **1. Vérification et mise à jour des données client**
+- Confirmer l’**email** (MAIL123@MAIL) et le **numéro de téléphone** dans le système.
+- **Source :** [Procédure Départ Client | DETAIL DES OPERATIONS MENEES]
 
-3. **Recommandation** :
-   - **Abonner à partir du 03/12/2024** (date de réouverture du branchement).
-   - **Si le client insiste sur le 01/12** :
-     - Vérifier s'il a **effectivement consommé** (ex. : relevé d'index intermédiaire, témoignage).
-     - En l'absence de preuve, **maintenir le 03/12** pour éviter une facturation sans consommation.
+#### **2. Ouverture du dossier de résiliation**
+- Créer un **Dossier "Départ client Signalé - DSI"** dans le système.
+- Renseigner la **date prévisionnelle de départ** : **01/08/2025** (date effective de sortie).
+- **Source :** [Procédure Départ Client | DETAIL DES OPERATIONS MENEES]
 
-4. **Cas particulier (mensualisation)** :
-   - Si le client adhère à la **mensualisation**, appliquer les règles du document **[PNATCLI11]** :
-     - **Échéancier** calculé sur **10 mois** (pour éviter les doublons avec les factures semestrielles).
-     - **Montant estimé** basé sur la composition du foyer (ex. : 15 €/
+#### **3. Traitement de la résiliation**
+- **Date de fin de contrat** = **01/08/2025** (date de sortie des lieux, justifiée par les documents transmis).
+- Le client reste redevable des **consommations et abonnements jusqu’à cette date**.
+- **Source :** [Procédure Départ Client | TRAITER LES DEMANDES DE RESILIATION D'ABONNEMENT]
+
+#### **4. Ouverture d’un Dossier ASI (si logement vacant)**
+- Si le logement est **désormais inoccupé**, ouvrir un **Dossier ASI** avec la branche **"Logement vacant"**.
+- **Source :** [Procédure Départ Client | TRAITER LES DEMANDES DE RESILIATION D'ABONNEMENT]
+
+#### **5. Facturation finale**
+- Une **facture d’arrêt de compte** sera émise pour régulariser les consommations jusqu’au 01/08/2025.
+- **Source :** [Procédure Départ Client | TRAITER LES DEMANDES DE RESILIATION D'ABONNEMENT]
+
+### **Prochaines actions**
+- **Accuser réception** du mail de Mme YYYY en confirmant :
+  - La prise en compte de sa demande.
+  - La date de résiliation (01/08/2025).
+  - L’envoi prochain de la facture de clôture.
+
+**Source(s) :**
+- [Procédure Départ Client | TRAITER LES DEMANDES DE RESILIATION D'ABONNEMENT]
+- [Procédure Départ Client | DETAIL DES OPERATIONS MENEES]
 
 ### Statistiques
 
@@ -50,110 +59,377 @@ D'après le contexte fourni, votre client a signalé une arrivée le **01/12/202
 
 **PRIMARY:**
 
-- Unknown
+- Procédure Départ Client
 
 ---
 
 ## Question 2
 
-**Query:** Mon client a appelé le 27/06, il est arrivé le 01/05 . Pas d'index. Je consulte les AT : branchement fermé le 27/06 , et réouvert le 28/06 IND 646. Le prédécesseur est résilié le 04/06 IND 627 sans payer ses dernières factures.L'état des lieux fourni ne précise pas l'index. à quelle date dois-je l'abonner ?
+**Query:** Mme YYYY envoie le message suivant : « Bonjour, J’ai souscrit un contrat d’eau à une nouvelle adresse, toutefois le contrat n’est pas encore  visible, alors que le mandat SEPA a bien été signé. Je vous remercie de bien vouloir vérifier la prise en compte de mon emménagement. Cordialement, Mme YYYY Mail : MAIL123@MAIL »
 
 ### Réponse
 
-**D'après le contexte fourni :**
-Votre client a emménagé le **01/05**, mais son abonnement n’a pas encore été activé. Les **AT (Appels Techniques)** indiquent :
-- Un **branchement fermé le 27/06** (suite à la résiliation du prédécesseur).
-- Une **réouverture le 28/06** avec un **index de 646**.
-- Le **prédécesseur résilié le 04/06** avec un **index de 627**, sans régler ses dernières factures.
-- **Aucun index** n’est mentionné sur l’état des lieux fourni.
+**D'après le contexte fourni**, Mme YYYY signale que son **contrat d’eau n’est pas encore visible** malgré la signature du mandat SEPA pour son nouvel emménagement. Voici la démarche à suivre pour traiter sa demande :
 
 ---
 
-### **Date et index à utiliser pour l'abonnement**
-#### **1. Règle générale (sans justificatif d'index)**
-- **Date d'abonnement** : **Date de résiliation du prédécesseur** (soit le **04/06**).
-- **Index à utiliser** : **Index de résiliation du prédécesseur** (soit **627**).
-  - *Justification* : En l’absence d’index sur l’état des lieux, la procédure impose de se baser sur l’index de résiliation de l’ancien occupant (cf. **Source : [20251106 Rappel métier écart consommation entre 2 abonnés v5 | Traitement en back office]**).
+### **1. Vérification immédiate du dossier**
+**Actions à réaliser :**
+1. **Accéder à TPMC** (Tableau de Pilotage Multicanal Client) et/ou à la **base des services** via le compte client **Odyssée** (écran "vue 360°").
+2. **Rechercher l’adresse d’emménagement** de Mme YYYY :
+   - Via le **site** ou le **matricule du compteur** (si fourni).
+   - Vérifier si le **contrat est en cours de création** ou en attente de validation.
+3. **Contrôler le statut du mandat SEPA** :
+   - Confirmer que le mandat est **bien enregistré** et **validé** (délai de traitement possible : 24 à 48h).
+   - Si le mandat est en erreur, **relancer le processus** ou informer Mme YYYY des étapes restantes.
 
-#### **2. Vérification de l'écart de consommation**
-- **Écart entre index** :
-  - Index de réouverture (28/06) : **646**
-  - Index de résiliation (04/06) : **627**
-  - **Écart = 19 m³** (supérieur à la tolérance de **5 m³**).
-- **Action requise** :
-  - **Ouvrir un dossier ARR avec intervention** pour vérifier l’écart.
-  - **Préciser dans le commentaire** : *"Écart de consommation > 5 m³ entre l’index de résiliation (627) et l’index de réouverture (646). Vérification nécessaire."*
-  - *Source : [20251106 Rappel métier écart consommation entre 2 abonnés v5 | Cas d’une demande d’arrivée avec remise en eau]*.
+---
 
-#### **3. Exception (si justificatif fourni ultérieurement)**
-- Si le client transmet **ultérieurement un état des lieux avec index** :
-  - **Abonnement rétroactif** à la date et à l’index indiqués (dans la limite de **2 ans** de prescription).
-  - *Source : [20251106 Rappel métier écart consommation entre 
+### **2. Points de contrôle spécifiques**
+**À vérifier systématiquement :**
+- **Cohérence des index** :
+  - Si l’index transmis par Mme YYYY **ne correspond pas** à celui du prédécesseur, une **intervention de relève** sera déclenchée (à notifier au client).
+- **Type de logement** :
+  - Confirmer s’il s’agit d’une **maison** ou d’un **appartement** (pour éviter les doublons ou erreurs d’adresse).
+- **Délais standards** :
+  - **Visibilité du contrat** : 24 à 72h après signature du mandat SEPA (selon la procédure interne).
+  - **Activation du service** : Sous 5 jours ouvrés après validation complète.
+
+---
+
+### **3. Réponse à apporter à Mme YYYY**
+**Exemple de message personnalisé :**
+> *"Bonjour Mme YYYY,
+> Nous avons bien pris en compte votre demande concernant votre emménagement à [adresse précise]. Après vérification :
+> - Votre **mandat SEPA est bien enregistré** et en cours de traitement.
+> - Votre **contrat sera visible sous 24 à 48h** dans votre espace client [lien vers l’espace].
+> Nous restons à votre disposition pour toute question complémentaire. Cordialement, [Votre nom/prénom] – Service Client [Nom du centre]."*
+
+**Si anomalie détectée :**
+> *"Nous constatons un délai anormal dans le traitement de votre dossier. Nous transmettons votre demande à notre service technique pour résolution sous 24h. Nous vous tiendrons informée par retour de mail."*
+
+---
+
+### **4. Escalade si nécessaire**
+**Cas nécessitant une escalade :**
+- **Mandat SEPA non visible** après 48h → Contacter le service **Back-Office** (réf. P_NAT_CLI_12, section 6.2).
+- **Index incohérent** → Déclencher une **relève d’index** via le formulaire dédié (lien interne).
+- **Adresse introuvable** → Vérifier avec le client la **précision de l’adresse** (étage, bâtiment, etc.).
+
+---
+
+**Source(s):**
+- **Procédure nationale Arrivée Client V8** | Sections :
+  - *6.2 Traitement de l’arrivée client le jour de son emménagement* (p.6).
+  - *Aide au discours arrivée client* (identification des informations).
+- **Réf. P_NAT_CLI_12** (indice 8, mise à jour 08/06/2022).
 
 ### Statistiques
 
 - **Retriever:** VectorRetriever
-- **Chunks:** 4
-- **Contexte:** ~2036 chars
+- **Chunks:** 3
+- **Contexte:** ~1527 chars
 - **Variantes:** 3
 
 ### Documents Utilisés
 
 **PRIMARY:**
 
-- 20251106 Rappel métier écart consommation entre 2 abonnés v5
+- Procedure nationale Arrivée Client V8
 
 ---
 
 ## Question 3
 
-**Query:** Mon client a appelé le 04/07/25, il me dit qu'il souhaite reprendre le contrat de sa mère décédée. Il nous fourni l'index du jour et un acte d'hérédité. a quelle date dois-je l'abonner ?
+**Query:** M XXXXXX envoie le message suivant : « Bonjour, Je souhaite procéder à la résiliation de mon contrat d’eau suite à un déménagement. N’ayant pas réussi à effectuer la démarche en ligne ni par téléphone, je vous contacte par ce  message. Merci de me recontacter afin de finaliser la résiliation. Cordialement, M XXXXXX Mail : MAIL123@MAIL Tél : 00123456789 »
 
 ### Réponse
 
-**D'après le contexte fourni**, votre client souhaite reprendre le contrat de sa mère décédée en tant qu'héritier. Voici la procédure à suivre et la date d'abonnement applicable :
+**D'après le contexte fourni**, M. XXXXXX souhaite résilier son contrat d’eau dans le cadre d’un déménagement et demande un rappel pour finaliser la démarche. Voici la procédure à suivre pour traiter sa demande, conformément aux directives du centre de relation client.
 
 ---
 
-### **1. Étapes à suivre**
-**Ne pas modifier directement le titulaire du contrat** (ni le RIB) sur la base des documents fournis (acte d'hérédité + index).
-**Actions requises :**
-1. **Résilier le contrat au nom du prédécesseur (la mère)** :
-   - **Sans frais** (conformément à la procédure de succession).
-   - **Date de résiliation** : **04/07/2025** (date de l'appel du client).
-     *Justification* : La résiliation prend effet à la date de la demande, sauf mention contraire dans les CGV.
+### **1. Étapes immédiates à engager**
+1. **Contacter le client sous 24h** (par téléphone ou email) pour :
+   - Confirmer la réception de sa demande.
+   - Lui proposer une assistance personnalisée pour finaliser la résiliation.
 
-2. **Créer un nouveau contrat au nom de l'héritier** :
-   - **Date d'effet** : **04/07/2025** (même date que la résiliation pour éviter une interruption de service).
-   - **Index** : Utiliser l'**index du jour** fourni par le client.
-   - **Documents à joindre** :
-     - Acte d'hérédité (pour justifier la reprise du contrat).
-     - Pièce d'identité du nouveau titulaire.
-
-3. **Transmettre le dossier à l'équipe dédiée** :
-   - La **mutation officielle** (changement de titulaire) sera traitée en interne par le service succession.
-   - **Ne pas modifier le RIB** avant validation par ce service.
+2. **Vérifier les tentatives précédentes** :
+   - Demander au client les détails des échecs (ex. : problème technique sur le site, indisponibilité du service téléphonique).
+   - **Documenter ces éléments** dans le dossier client pour analyse ultérieure.
 
 ---
 
-### **2. Points de vigilance**
-- **Pas de double facturation** : Vérifier que la résiliation et la création du nouveau contrat sont bien synchronisées.
-- **Communication au client** :
-  - L'informer que le contrat sera **temporairement sous son nom** après le 04/07/2025, mais que la mutation définitive dépendra du traitement interne.
-  - Préciser que **aucun frais de résiliation** ne lui sera facturé.
+### **2. Procédure de résiliation à appliquer**
+#### **A. Promotion du compte en ligne (principe prioritaire)**
+- **Rappeler au client** qu’il peut effectuer la résiliation **directement via son compte en ligne** :
+  - Site : [https://www.toutsurmoneau.fr](https://www.toutsurmoneau.fr)
+  - Avantages : **démarche autonome, rapide et sécurisée**.
+- **Proposer un accompagnement** (ex. : envoi d’un guide pas-à-pas par email ou partage d’écran si contact téléphonique).
+
+#### **B. Ouverture du dossier "Départ client"**
+1. **Créer un dossier "Départ client Signalé - DSI"** dans le système de gestion.
+2. **Renseigner les informations obligatoires** :
+   - **Date prévisionnelle de départ** (à demander au client).
+   - Coordonnées du client (email : MAIL123@MAIL, tél : 00123456789).
+   - **Motif de résiliation** : déménagement (à préciser si possible : nouvelle adresse, date d’emménagement).
+
+#### **C. Relevé de compte et facturation**
+- **Proposer un "relevé confiance"** (si applicable) pour éviter les litiges sur la consommation finale.
+- **Informer le client** des éventuels frais de résiliation (ex. : **frais de fermeture de compte**) prévus par le règlement de service.
+  - **Préciser le montant et la date de prélèvement** si applicable.
+
+#### **D. Confirmation écrite**
+- **Envoyer un email de confirmation** au client avec :
+  - Récapitulatif de la date de résiliation effective.
+  - Instructions pour le relevé final (si nécessaire).
+  - Coordonnées du service client en cas de question.
 
 ---
 
-### **3. Délai de traitement**
-- **Résiliation** : Effective sous **48h** (à confirmer selon les CGV).
-- **Nouveau contrat** : Activation sous **24 à 48h** après création.
-- **Mutation définitive** : Délai variable (généralement **10 à 15 jours** après réception des documents complets par le service succession).
+### **3. Points de vigilance**
+- **Délai de traitement** : La résiliation doit être effective **à la date demandée par le client** (sous réserve de la transmission des informations requises).
+- **Preuve de déménagement** : Si le règlement de service l’exige, demander une **justificatif** (ex. : bail, attestation de déménagement).
+- **Suivi post-résiliation** :
+  - Vérifier que le client reçoit bien sa **facture de clôture**.
+  - Proposer un **transfert de contrat** si le client reste dans la zone de desserte du service.
+
+---
+
+### **4. Canaux de contact à privilégier**
+- **Téléphone** : Pour un échange immédiat et personnalisé (idéal pour les urgences).
+- **Email** : Pour les confirmations écrites et les pièces jointes (ex. : guide de résiliation).
+- **Chat en ligne** : Si le client préfère une assistance textuelle en temps réel.
 
 ---
 
 **Source(s):**
-- [Rappel métier - Succession et modification titulaire v4 | Section "Important" et "Principe"](20250610- Rappel métier - Succession et modification titulaire v4)
-- Procédure interne SUEZ (version 
+- Procédure Nationale "Départ Client" | Section **TRAITER LES DEMANDES DE RESILIATION D'ABONNEMENT** (Réf : P_NAT_CLI_13, Indice 8, Page 12).
+- Principes clés : **Site internet et compte en ligne**, **Relevé confiance**, **Date de résiliation**.
+
+### Statistiques
+
+- **Retriever:** VectorRetriever
+- **Chunks:** 2
+- **Contexte:** ~1018 chars
+- **Variantes:** 3
+
+### Documents Utilisés
+
+**PRIMARY:**
+
+- Procédure Départ Client
+
+---
+
+## Question 4
+
+**Query:** me YYYY envoie le message suivant : « Bonjour, Je vous transmets mon état des lieux de sortie accompagné de la photo du compteur. Ces éléments sont envoyés afin de permettre la résiliation de mon contrat. Cordialement, Mme YYYY Mail : MAIL123@MAIL »
+
+### Réponse
+
+**D'après le contexte fourni, Mme YYYY souhaite résilier son contrat en transmettant son état des lieux de sortie et la photo du compteur.**
+
+### **Étapes à suivre pour traiter la demande de résiliation**
+
+1. **Vérification des éléments reçus**
+   - Confirmer la réception de :
+     - L’**état des lieux de sortie**
+     - La **photo du compteur** (vérifier sa lisibilité et la présence des index)
+   - **Si un élément manque** : Demander à Mme YYYY de le renvoyer.
+
+2. **Mise à jour des données client**
+   - Vérifier et actualiser si nécessaire :
+     - **Email** (MAIL123@MAIL)
+     - **Téléphone** (non fourni dans le message → à demander si absent du dossier)
+
+3. **Rappel des obligations contractuelles**
+   - Informer Mme YYYY que :
+     - **Le contrat reste actif** jusqu’à la résiliation effective (accès au compteur validé).
+     - **Elle reste redevable** des consommations et abonnements jusqu’à la clôture du contrat.
+
+4. **Vérification de l’accès au compteur**
+   - **Si le compteur est accessible** (photo valide) :
+     - Finaliser la résiliation après validation des index.
+   - **Si le compteur n’est pas accessible** (ex. : absence de photo ou compteur non visible) :
+     - Proposer un **rendez-vous** pour relevé ou demander une **nouvelle photo conforme**.
+     - **Préciser** : Sans accès, le contrat reste à son nom et les factures continuent.
+
+5. **Clôture du contrat d’assurance (si applicable)**
+   - Vérifier si Mme YYYY a un contrat d’assurance lié (ex. : Homeserve).
+   - **Si déménagement dans une zone non gérée par SEF** : Envoyer un courrier pour clôture.
+   - **Si déménagement dans une zone gérée par SEF** : Proposer une reconduction.
+
+6. **Confirmation écrite**
+   - Envoyer un email récapitulatif à Mme YYYY avec :
+     - Les étapes restantes (ex. : rendez-vous, envoi de documents).
+     - La date prévisionnelle de résiliation.
+
+---
+
+**Source(s):**
+- Procédure Départ Client | **TRAITER LES DEMANDES DE RÉSILIATION D’ABONNEMENT** (P_NAT_CLI_13, Indice 8)
+- Procédure Départ Client | **Traitement du départ immédiat du client** (accès au compteur)
+
+### Statistiques
+
+- **Retriever:** VectorRetriever
+- **Chunks:** 3
+- **Contexte:** ~1527 chars
+- **Variantes:** 3
+
+### Documents Utilisés
+
+**PRIMARY:**
+
+- Procédure Départ Client
+
+---
+
+## Question 5
+
+**Query:** M XXXXXX envoie le message suivant : « Bonsoir, Vous trouverez ci-joint le document notarié demandé. Je vous informe également que mon adresse principale a changé. Je reste dans l’attente de votre confirmation concernant la mise à jour de mon dossier et la  résiliation du contrat concerné. Cordialement, M XXXXXX Mail : MAIL123@MAIL »
+
+### Réponse
+
+**D'après le contexte fourni, M. XXXXXX a transmis :**
+- Un **document notarié** (preuve du changement de situation)
+- Une **demande de mise à jour d’adresse principale**
+- Une **demande de résiliation de contrat**
+
+Voici la **procédure à suivre** pour traiter sa demande :
+
+---
+
+### **1. Mise à jour des données client**
+**Actions immédiates :**
+- **Vérifier et mettre à jour** les informations suivantes dans le système :
+  - Nouvelle adresse principale (obligatoire pour la facturation et les relances).
+  - **Email** (MAIL123@MAIL) et **téléphone portable** (si fourni ultérieurement).
+- **Confirmer par écrit** (email ou courrier) la prise en compte de la mise à jour.
+
+**Source(s):** [Procédure Départ Client | Traitement du départ immédiat du client – Section 6.2]
+
+---
+
+### **2. Traitement de la résiliation**
+**Étapes clés :**
+1. **Rappeler au client** (par téléphone ou email) :
+   - Il reste **redevable** des abonnements et consommations **jusqu’à la résiliation effective** (facture d’arrêt de compte).
+   - La résiliation ne sera effective qu’après **paiement intégral** des sommes dues.
+2. **Vérifier la présence d’un successeur** (propriétaire/syndic) :
+   - **Si connu** :
+     - Créer un **prospect** pour le successeur.
+     - Ouvrir un dossier **"Arrivée Client signalée ASI"** (qualifié "information par le prédécesseur").
+     - Envoyer un **courrier (1-70)** à l’adresse du site au nom de *"M. et Mme le Nouvel Occupant"* pour inciter à l’abonnement.
+   - **Si inconnu** : Noter l’absence de successeur dans le dossier.
+
+**Source(s):** [Procédure Départ Client | TRAITER LES DEMANDES DE RÉSILIATION D'ABONNEMENT] + [Procédure Départ Client | Traitement du départ immédiat du client – Cas 1]
+
+---
+
+### **3. Confirmation finale**
+- **Envoyer un email/courrier** à M. XXXXXX pour :
+  - **Accuser réception** du document notarié et de la demande de résiliation.
+  - **Préciser les étapes restantes** (paiement des factures, délai de traitement).
+  - **Fournir un contact dédié** en cas de question.
+
+**Modèle de phrase clé :**
+*"Nous vous confirmons la mise à jour de votre adresse et le lancement de la procédure de résiliation. Votre contrat restera actif jusqu’au règlement intégral de votre facture d’arrêt de compte. Un courrier de clôture vous sera adressé sous 15 jours."*
+
+**Source(s):** [Procédure Départ Client | Traitement de la demande d'information sur le départ client]
+
+---
+
+### **4. Points de vigilance**
+- **Document notarié** : Archiver une copie numérique dans le dossier client.
+- **Délais** : La résiliation n’est effective qu’après **paiement complet** et **émission de la facture d’arrêt**.
+- **Successeur** : Si le client ne fournit pas les coordonnées du successeur, **relancer une fois** avant clôture.
+
+**Besoin d’approfondissement ?** Consulter l’**Annexe 10.1 (Schéma)** pour le processus complet.
+
+### Statistiques
+
+- **Retriever:** VectorRetriever
+- **Chunks:** 3
+- **Contexte:** ~1527 chars
+- **Variantes:** 3
+
+### Documents Utilisés
+
+**PRIMARY:**
+
+- Procédure Départ Client
+
+---
+
+## Question 6
+
+**Query:** M XXXXXX envoie le message suivant : « Bonjour, Je vous transmets ce jour le certificat d’hérédité demandé dans le cadre du dossier en cours. Je reste à votre disposition pour toute information complémentaire. Cordialement, M XXXXXX Mail : MAIL123@MAIL »
+
+### Réponse
+
+**D'après le contexte fourni**, M. XXXXXX vous transmet un **certificat d’hérédité** dans le cadre d’un dossier de succession en cours. Voici la procédure à suivre pour traiter cette demande conformément aux règles métiers en vigueur.
+
+---
+
+### **1. Vérification des éléments reçus**
+- **Document transmis** : Certificat d’hérédité (à joindre au dossier client).
+- **Contexte** : Succession en cours (Cas 1 du rappel métier).
+- **Action immédiate** :
+  - **Accuser réception** du mail en remerciant M. XXXXXX pour l’envoi du document.
+  - **Vérifier la complétude** du certificat (mention des héritiers, signature, cachet de l’autorité compétente, etc.).
+  - **Conserver une copie** dans le dossier client (outil ILIADE ou GED).
+
+---
+
+### **2. Procédure à appliquer (Cas 1 : Succession en cours)**
+**Règles clés** :
+- **Ne pas modifier** le titulaire du contrat ni le RIB dans l’immédiat.
+- **Ne pas résilier** le contrat au nom du prédécesseur (sauf demande explicite des héritiers).
+- **Créer un nouvel interlocuteur** dans ILIADE pour le successeur (si ce n’est pas déjà fait).
+
+**Étapes détaillées** :
+1. **Dans ILIADE** :
+   - Ajouter une ligne **"Titulaire"** dans les caractéristiques de l’acte pour identifier le successeur.
+   - **Ne pas supprimer** l’ancien titulaire (historique à conserver).
+   - Mettre à jour les coordonnées du successeur (mail, téléphone) si fournies.
+
+2. **Traitement du dossier** :
+   - **Classer le certificat d’hérédité** dans la section "Pièces justificatives" du dossier.
+   - **Mettre le dossier en attente** de validation finale (succession terminée).
+   - **Informer le client** que la mutation définitive interviendra après réception de l’acte de notoriété ou du jugement d’hérédité (selon les cas).
+
+3. **Communication avec M. XXXXXX** :
+   - **Exemple de réponse** :
+     > *"Bonjour M. XXXXXX,
+     > Nous accusons réception de votre certificat d’hérédité, que nous avons bien intégré à votre dossier. Conformément à notre procédure, la mutation du contrat au nom du successeur sera finalisée une fois la succession terminée (acte de notoriété ou jugement d’hérédité requis). Nous restons à votre disposition pour toute question.
+     > Cordialement, [Votre nom]."*
+
+---
+
+### **3. Points de vigilance**
+- **À ne pas faire** :
+  - Modifier le RIB ou le titulaire sans document définitif (risque de fraude ou d’erreur).
+  - Résilier le contrat sans accord écrit des héritiers.
+- **À faire** :
+  - **Relancer** M. XXXXXX si le certificat est incomplet (ex. : absence de signature).
+  - **Escalader** au service juridique si le dossier présente des particularités (ex. : héritiers mineurs, désaccord entre héritiers).
+
+---
+
+### **4. Prochaines étapes**
+- **Si la succession est terminée** (Cas 2) :
+  - Demander un **acte de notoriété** ou un **jugement d’hérédité** pour finaliser la mutation.
+  - Mettre à jour le titulaire et le RIB dans ILIADE.
+- **Si la succession est toujours en cours** :
+  - Maintenir le dossier en attente et suivre les relances trimestrielles.
+
+---
+
+**Source(s)** :
+- [20250610- Rappel métier - Succession et modification titulaire v4 | Cas 1 : la succession est en cours]
+- [20250610- Rappel métier - Succession et modification titulaire v4 | Mutation]
 
 ### Statistiques
 
@@ -170,346 +446,155 @@ Votre client a emménagé le **01/05**, mais son abonnement n’a pas encore ét
 
 ---
 
-## Question 4
-
-**Query:** Mon client a appelé le 14/08/24, il me dit qu'il est arrivé le 17/05/24. Pas d'index. Quand je consulte les AT, le branchement a été fermé le 30/07/24, et réouvert le 14/08/24, avec le même index. à quelle date dois-je l'abonner ?
-
-### Réponse
-
-**D'après le contexte fourni, voici la marche à suivre pour abonner votre client dans le cadre d'une mutation rétroactive avec un historique de fermeture/réouverture du branchement :**
-
----
-
-### **1. Synthèse de la situation**
-- **Date d'arrivée du client** : **17/05/2024** (à prendre en compte pour l'abonnement).
-- **Historique du branchement** :
-  - Fermeture le **30/07/2024**.
-  - Réouverture le **14/08/2024** avec le **même index** (pas de consommation enregistrée entre les deux dates).
-- **Appel du client** : **14/08/2024** (date de réouverture = jour J).
-
----
-
-### **2. Règles à appliquer**
-#### **Cas général (mutation rétroactive)**
-- **L'abonnement doit être rétroactif** à la date d'arrivée du client (**17/05/2024**), **même si le contrat du prédécesseur était actif jusqu'au 30/07/2024**.
-  - **Exception** : Si le client s'oppose à une dette du prédécesseur (dans la limite de **2 ans de prescription**), l'abonnement reste possible.
-- **Pas d'index disponible** : Utilisez la date d'arrivée comme point de départ pour le calcul des consommations (à ajuster ultérieurement si un index est fourni).
-
-#### **Spécificités de ce dossier**
-- **Fermeture/réouverture sans changement d'index** :
-  - Le branchement a été **fermé administrativement** (ex. : résiliation du prédécesseur) puis **réactivé** pour le nouveau client.
-  - **Aucune consommation n'a été enregistrée** entre le 30/07 et le 14/08 (même index), donc **pas d'impact sur la facturation**.
-- **Date d'abonnement** :
-  - **Priorité à la date d'arrivée** (17/05/2024) pour couvrir la période où le client occupait les lieux.
-  - **La réouverture du 14/08/2024** est une **conséquence administrative** (pas une date d'emménagement).
-
----
-
-### **3. Étapes à suivre**
-1. **Créer l'abonnement rétroactif** :
-   - **Date de début** : **17/05/2024** (date d'arrivée du client).
-   - **Index de départ** : À laisser vide ou à 0 (à mettre à jour ultérieurement si le client fournit un index).
-   - **
-
-### Statistiques
-
-- **Retriever:** VectorRetriever
-- **Chunks:** 4
-- **Contexte:** ~2036 chars
-- **Variantes:** 3
-
-### Documents Utilisés
-
-**PRIMARY:**
-
-- 20251106 Rappel métier mutation rétroactive v2
-
----
-
-## Question 5
-
-**Query:** Mon client a appelé le 7/08/25, il me dit qu'il est arrivé le 07/06/22. Pas d'index. Quand je consulte les AT, le branchement a été fermé le 7/08/25, et réouvert le 8/08/25. à quelle date dois-je l'abonner ?
-
-### Réponse
-
-**D'après le contexte fourni, voici la démarche à suivre pour déterminer la date d'abonnement du client :**
-
-### **1. Analyse de la situation**
-- **Date d'arrivée du client** : **07/06/2022** (déclarée par le client).
-- **Appel du client** : **07/08/2025** (date de contact).
-- **Historique du branchement** :
-  - **Fermeture** : **07/08/2025** (jour de l'appel).
-  - **Réouverture** : **08/08/2025** (lendemain).
-
-**Problème** : **Aucun index de consommation** n'est disponible pour calculer une facture précise.
-
----
-
-### **2. Règles d'abonnement applicables**
-D'après le document **[PNATCLI11 - Mensualisation et prélèvement automatique]** :
-- **Pour un nouveau client sans historique de consommation** :
-  - L'abonnement doit être **estimé** en fonction de la composition du foyer (ex. : 1 pers = 15 €/mois, 2 pers = 20 €/mois).
-  - **La date d'effet de l'abonnement** correspond à la **date de réouverture du branchement** (sauf si le client prouve une occupation antérieure).
-
----
-
-### **3. Date d'abonnement à retenir**
-- **Cas standard** :
-  - **Date de réouverture du branchement** = **08/08/2025** (date à privilégier).
-  - *Justification* : Le branchement était **fermé le 07/08/2025** (jour de l'appel), donc l'abonnement ne peut pas démarrer avant sa réouverture.
-
-- **Exception possible** :
-  - Si le client **fournit une preuve d'occupation** (ex. : bail, facture d'électricité) **avant le 07/08/2025**, la date d'abonnement peut être **antidatée** (ex. : 07/06/2022).
-  - *À vérifier* : **Aucune preuve n'est mentionnée dans votre contexte**.
-
----
-
-### **4. Étapes à suivre**
-1. **Vérifier la présence d'un historique** :
-   - Consulter le **SI Clientèle** pour confirmer l'absence d'index ou de factures antérieures.
-2. **Proposer une estimation** :
-   - Baser l'échéancier sur la **composition du foyer** (ex. : 15 €/mois pour 1 personne).
-3. **Informer le client** :
-   - Lui expliquer que l'abon
-
-### Statistiques
-
-- **Retriever:** VectorRetriever
-- **Chunks:** 4
-- **Contexte:** ~2036 chars
-- **Variantes:** 3
-
-### Documents Utilisés
-
-**PRIMARY:**
-
-- Unknown
-
----
-
-## Question 6
-
-**Query:** Mon client a appelé le 19/06/25, il me dit qu'il est arrivé le 18/06/24 à index 0. Quand je consulte le compte, je vois que le branchement est fermé depuis la pose du compteur et réouvert le 20/06/25. à quelle date dois-je l'abonner ?
-
-### Réponse
-
-**D'après le contexte fourni, voici la marche à suivre pour abonner votre client dans le cadre d'une mutation rétroactive avec un compteur fermé puis réouvert :**
-
----
-
-### **1. Analyse de la situation**
-- **Date d'arrivée déclarée par le client** : **18/06/2024** (index 0).
-- **État du compteur** :
-  - Fermé depuis la pose (date non précisée).
-  - **Réouvert le 20/06/2025**.
-- **Appel du client** : **19/06/2025** (soit **1 jour avant la réouverture**).
-
-**Points clés** :
-- Le client demande un abonnement **rétroactif** (date antérieure au jour J = 19/06/2025).
-- Le compteur était **inactif** entre sa pose et le 20/06/2025.
-
----
-
-### **2. Règles à appliquer**
-D'après le **rappel métier mutation rétroactive v2** (06/11/2025) :
-- **L'abonnement doit être réalisé aux dates communiquées par le client** (ici, **18/06/2024**), **même si** :
-  - Le compteur était fermé.
-  - L'ancien occupant avait une dette (sous réserve de prescription de 2 ans).
-- **Exception** : Si la date demandée est **antérieure au jour J** (19/06/2025), le conseiller doit :
-  1. **Annuler toute intervention technique en cours** (ex : réouverture du compteur).
-  2. **Ne pas traiter la demande en front office** → **Transférer en back office** pour validation.
-
----
-
-### **3. Étapes à suivre**
-1. **Vérifier la cohérence des dates** :
-   - Le client déclare être arrivé le **18/06/2024**, mais le compteur n'a été réouvert que le **20/06/2025**.
-   - **Risque** : Incohérence entre la date d'arrivée et l'état du compteur (fermé pendant 1 an).
-
-2. **Demander des justificatifs** (si nécessaire) :
-   - Preuve de la date d'emménagement (bail, facture d'électricité précédente, etc.).
-   - **Objectif** : Confirmer que le client était bien présent avant la réouverture du compteur.
-
-3. **Traiter la demande** :
-   - **Si la date du 18/06/2024 est validée** :
-     - **Abonner rétroactivement à cette
-
-### Statistiques
-
-- **Retriever:** VectorRetriever
-- **Chunks:** 4
-- **Contexte:** ~2036 chars
-- **Variantes:** 3
-
-### Documents Utilisés
-
-**PRIMARY:**
-
-- 20251106 Rappel métier mutation rétroactive v2
-
----
-
 ## Question 7
 
-**Query:** Mon client a appelé le 23/07/25, il me dit qu'il est arrivé le 21/06/25 à index 1474. Quand je consulte les AT, le branchement a été fermé le 23/07/25, et réouvert le même jour à index 1494. à quelle date dois-je l'abonner ?
+**Query:** M XXXXXX envoie le message suivant : « Bonjour, Je vous contacte suite à une procédure de recouvrement, alors que je n’occupe plus le  logement depuis décembre 2024. Le contrat n’ayant pas été résilié, je vous transmets une attestation de mon ancien propriétaire  confirmant mon départ. Je vous remercie de bien vouloir procéder à la résiliation du contrat. Cordialement, M XXXXXX Mail : MAIL123@MAIL »
 
 ### Réponse
 
-**D'après le contexte fourni, voici la démarche à suivre pour déterminer la date d'abonnement du client :**
-
-### **1. Analyse des éléments clés**
-- **Date d'arrivée du client** : **21/06/2025** (index 1474).
-- **Fermeture du branchement** : **23/07/2025** (jour de l'appel).
-- **Réouverture du branchement** : **23/07/2025** (même jour, index 1494).
-- **Écart d'index** : **20 m³** (1494 - 1474) consommés entre le 21/06 et le 23/07.
+**D'après le contexte fourni**, M. XXXXXX demande la résiliation de son contrat d'abonnement en justifiant son départ du logement depuis décembre 2024 via une attestation de son ancien propriétaire. Voici la procédure à suivre pour traiter sa demande :
 
 ---
 
-### **2. Règles de facturation applicables**
-- **Principe** : L'abonnement doit couvrir la **période réelle d'occupation** du logement, même si le branchement a été temporairement fermé.
-- **Cas spécifique** :
-  - Si le branchement a été **fermé et réouvert le même jour**, cela suggère une **intervention technique** (ex. : vérification, mise à jour) plutôt qu'une vacance du logement.
-  - Le client était **effectivement présent** depuis le **21/06/2025** (date d'arrivée déclarée).
+### **1. Vérification des éléments fournis**
+- **Attestation du propriétaire** :
+  - Vérifier que le document confirme bien :
+    - La date de départ effective (décembre 2024).
+    - La remise des clés ou la réalisation d’un état des lieux de sortie.
+  - **Si l’attestation est valide** : Passer à l’étape 2.
+  - **Si l’attestation est incomplète** : Demander un document complémentaire (ex. : état des lieux signé, preuve de remise des clés).
 
 ---
 
-### **3. Date d'abonnement à retenir**
-- **Date de début d'abonnement** : **21/06/2025** (date d'arrivée du client).
-  - **Justification** :
-    - La fermeture/réouverture le 23/07 est un **événement ponctuel** sans impact sur la continuité de l'occupation.
-    - Les **20 m³ consommés** confirment une utilisation du service entre le 21/06 et le 23/07.
-- **Période à facturer** :
-  - Du **21/06/2025** au **23/07/2025** (consommation réelle).
-  - Puis **abonnements mensuels** à partir du 23/07/2025 (selon l'échéancier type, ex. : prélèvements le 30 de chaque mois).
+### **2. Résiliation du contrat**
+- **Date de résiliation** :
+  - **La date de fin de contrat doit correspondre à la date de sortie effective** (décembre 2024, selon l’attestation).
+  - Le client reste redevable des consommations et de l’abonnement **jusqu’à cette date**.
+- **Actions à réaliser** :
+  1. **Clôturer le contrat** dans le système avec la date de décembre 2024.
+  2. **Générer une facture d’arrêt de compte** incluant :
+     - Les consommations jusqu’à la date de résiliation.
+     - Les éventuels frais de régularisation (ex. : solde de tout compte).
+  3. **Ouvrir un Dossier ASI** (Abandon de Site par l’Installation) avec la branche **"Logement vacant"** pour signaler la vacance du logement.
 
 ---
 
-### **4. Actions à mener**
-1. **Créer l'abonnement** avec une **date de début au 21/06/2025**.
-2. **Facturer la consommation** :
-   - **20 m³** pour la période du 21/06 au 23/07/2025.
-   - **Abonnement** proratisé sur cette période
+### **3. Communication avec le client**
+- **Accusé de réception** :
+  - Envoyer un mail à **MAIL123@MAIL** pour confirmer :
+    - La prise en compte de sa demande.
+    - La date de résiliation retenue (décembre 2024).
+    - Les prochaines étapes (envoi de la facture d’arrêt de compte sous X jours).
+- **Exemple de message** :
+  > *"Bonjour M. XXXXXX,
+  > Nous accusons réception de votre demande de résiliation et de l’attestation de départ fournie. Votre contrat sera clôturé à la date du **décembre 2024**, conformément à votre départ effectif. La facture d’arrêt de compte vous sera adressée sous 10 jours ouvrés.
+  > Cordialement, [Votre Centre de Relation Client]."*
+
+---
+
+### **4. Cas particuliers à vérifier**
+- **Procédure de recouvrement en cours** :
+  - Si des relances ont été envoyées **après décembre 2024**, les annuler ou les ajuster.
+  - Vérifier que le client n’est pas facturé pour des périodes postérieures à son départ.
+- **Accès au compteur** :
+  - Si le logement est vacant, une **intervention pour boucher à clé** peut être programmée (cf. procédure nationale).
+
+---
+
+### **5. Suivi post-résiliation**
+- **Facture d’arrêt de compte** :
+  - Vérifier que la régularisation (solde créditeur/débiteur) est bien incluse.
+  - Envoyer la facture par mail (avec copie à l’ancien propriétaire si nécessaire).
+- **Dossier ASI** :
+  - S’assurer que le dossier est bien ouvert et transmis à la branche concernée.
+
+---
+
+**Source(s)** :
+- Procédure Nationale **"TRAITER LES DEMANDES DE RÉSILIATION D’ABONNEMENT"** (Réf : P_NAT_CLI_13, Section "Date de résiliation du contrat").
+- Procédure **"DÉPART CLIENT"** (Page 1/12, Paragraphe "Logement vacant").
 
 ### Statistiques
 
 - **Retriever:** VectorRetriever
-- **Chunks:** 3
-- **Contexte:** ~1527 chars
+- **Chunks:** 2
+- **Contexte:** ~1018 chars
 - **Variantes:** 3
 
 ### Documents Utilisés
 
 **PRIMARY:**
 
-- Unknown
+- Procédure Départ Client
 
 ---
 
 ## Question 8
 
-**Query:** Mon client a appelé le 20/10/25, il me dit qu'il est arrivé le 15/01/25 à index de 1356. Le branchement est ouvert. Le prédécésseur a résilié son contrat le 30/05/25 avec index de 1422 et a réglé sa facture de solde. à quelle date dois-je l'abonner ?
+**Query:** Mme YYYY envoie le message suivant : « Bonjour, Veuillez trouver en pièce jointe la photo du compteur afin de permettre la mise en service du  contrat au nom du nouvel occupant. Je vous remercie de bien vouloir procéder à l’ouverture du contrat. Cordialement, Mme YYYY Mail : MAIL123@MAIL »
 
 ### Réponse
 
-**D'après le contexte fourni, voici la marche à suivre pour abonner votre client successeur :**
-
-### **1. Contexte clé**
-- **Prédécesseur** :
-  - Résiliation le **30/05/25** (index final : **1422**).
-  - Facture de solde réglée → **contrat clôturé à cette date**.
-- **Nouveau client** :
-  - Arrivé le **15/01/25** (index initial : **1356**).
-  - **Branchement ouvert** (compteur accessible).
+**D'après le contexte fourni, Mme YYYY demande la mise en service d'un contrat pour un nouvel occupant en fournissant une photo du compteur. Voici la procédure à suivre et les éléments à vérifier :**
 
 ---
 
-### **2. Date d'abonnement à appliquer**
-**Règle générale** :
-- Le contrat du successeur doit débuter **à la date de son emménagement effectif** (remise des clés/état des lieux), **sous réserve que le prédécesseur ait bien résilié avant**.
+### **1. Vérification des conditions d'enregistrement**
+**Contexte :**
+- La demande inclut une **photo du compteur** (relevé d'index fourni par le client).
+- **Pas de relève physique effectuée** par le client ou le technicien à ce stade.
 
-**Application à votre cas** :
-- **Date d'arrivée du successeur** : **15/01/25** (avant la résiliation du prédécesseur le 30/05/25).
-  - **Problème** : Le prédécesseur était encore titulaire du contrat jusqu'au 30/05/25. Le successeur ne peut pas être abonné sur la même période.
-  - **Solution** :
-    - **Abonnement rétroactif** à la **date de résiliation du prédécesseur** (30/05/25), **sauf si** :
-      - Le successeur prouve qu'il a occupé les lieux avant (ex. : bail, état des lieux).
-      - Dans ce cas, **ouvrir un dossier de régularisation** pour couvrir la période du **15/01/25 au 30/05/25** (consommations à facturer au prédécesseur ou au successeur selon accord).
-
-**Recommandation** :
-- **Vérifier les preuves d'occupation** (bail, état des lieux) pour confirmer la date du 15/01/25.
-- **Si pas de preuve** : Abonner à partir du **30/05/25** (date de résiliation du prédécesseur).
-- **Si preuve valide** : Abonner à partir du **15/01/25** et régulariser la période de chevauchement avec le prédécesseur.
+**Analyse des cas possibles (selon la procédure) :**
+- **Si le relevé fourni > 10 m³ par rapport à l'index de l'ancien occupant** :
+  - **Un RDV de relève est obligatoire**, **frais de déplacement à la charge du centre** (notre responsabilité).
+- **Si le relevé est incohérent avec l'historique de consommation** (ex. : consommation anormalement basse/haute) :
+  - **Un RDV de relève est obligatoire**, **frais de déplacement à la charge du client**.
+- **Si le relevé est cohérent et < 10 m³ de différence** :
+  - **Pas de RDV nécessaire** → **Mise en service possible sur la base de la photo**.
 
 ---
 
-### **3. Étapes à suivre**
-1. **Créer le client successeur** en tant que prospect (si ce n'est pas déjà fait).
-2. **Ouvrir un dossier "Arrivée Client signalée ASI"** (qualifié "information par le prédécesseur").
-3. **Vérifier l'index** :
-   - Index au 15
+### **2. Étapes à suivre pour traiter la demande**
+1. **Vérifier la cohérence du relevé fourni** :
+   - Comparer l'index de la photo avec :
+     - L'**index de départ de l'ancien occupant** (disponible dans TPMC/Odyssee).
+     - L'**historique de consommation** du site (moyenne annuelle, saisonnalité).
+   - **Outils** :
+     - TPMC (Tableau de bord client).
+     - Lien *"Base des services"* dans Odyssee (vue 360°).
 
-### Statistiques
+2. **Décision selon le résultat** :
+   - **Relevé cohérent** :
+     - **Procéder à l'ouverture du contrat** sans RDV.
+     - **Informer Mme YYYY** par mail :
+       > *"Votre demande de mise en service a été traitée sur la base du relevé fourni. Le contrat est désormais actif. Vous recevrez votre première facture sous [X] jours. Cordialement, [Votre service]."*
+   - **Relevé incohérent ou > 10 m³** :
+     - **Planifier un RDV de relève** (préciser les frais selon le cas).
+     - **Informer Mme YYYY** :
+       > *"Votre relevé présente une incohérence avec nos données. Un technicien interviendra le [date] pour effectuer une relève. [Frais à votre charge/à notre charge selon le cas]. Merci de confirmer votre disponibilité. Cordialement, [Votre service]."*
 
-- **Retriever:** VectorRetriever
-- **Chunks:** 3
-- **Contexte:** ~1527 chars
-- **Variantes:** 3
-
-### Documents Utilisés
-
-**PRIMARY:**
-
-- Procédure Départ Client
-
----
-
-## Question 9
-
-**Query:** Client nous contacte le 25/10/25 pour résilier son contrat et nous fournis un index du jour de 78. Le client à une dette de 550€ et un échéancier de paiement mensuel allant jusqu'en mars 2026. que dois je faire ?
-
-### Réponse
-
-**D'après le contexte fourni**, un client souhaite résilier son contrat le **25/10/25** tout en ayant :
-- Un **solde débiteur de 550€**
-- Un **échéancier de paiement en cours** (jusqu'en mars 2026)
-- Un **index de consommation** fourni (78).
-
-Voici la **procédure à suivre** :
+3. **Cas particulier : Photo illisible ou manquante** :
+   - **Demander un nouveau envoi** :
+     > *"La photo transmise n'est pas exploitable. Merci de nous renvoyer un cliché net du compteur (numéros visibles, sans reflet). Cordialement, [Votre service]."*
 
 ---
 
-### ### 1. **Informer le client des conséquences de la résiliation**
-- **Résiliation du prélèvement automatique** :
-  - Le client doit **régler le solde débiteur (550€) sous 15 jours** (délai impératif).
-  - **Aucun échéancier ne peut être maintenu** après résiliation (cf. procédure PNATCLI11).
-  - **Préciser** que le prélèvement sera désactivé **après règlement intégral** du solde.
-
-- **Résiliation de la mensualisation** (si applicable) :
-  - Le solde restant dû sera **réclamé sur la prochaine facture** (pas de délai de 15 jours, mais paiement immédiat attendu).
-  - **Aucun achèvement de dette** ne peut être accordé.
+### **3. Points de vigilance**
+- **Délai de traitement** :
+  - **Mise en service sous 24h** si relevé cohérent.
+  - **RDV sous 48h** si intervention nécessaire.
+- **Communication** :
+  - **Toujours confirmer par écrit** (mail) les actions engagées et les éventuels frais.
+- **Preuves** :
+  - **Archiver la photo du compteur** dans le dossier client (Odyssee/TPMC).
 
 ---
 
-### ### 2. **Étapes concrètes à suivre**
-1. **Vérifier le type de résiliation demandée** :
-   - Prélèvement automatique **et/ou** mensualisation ?
-   - Adapter la réponse en fonction (cf. sections [Résiliation] et [Prélèvement Automatique] de PNATCLI11).
-
-2. **Enregistrer l’index fourni (78)** :
-   - S’assurer qu’il est bien pris en compte pour la **facture de clôture**.
-
-3. **Notifier le client par écrit** (email/lettre) :
-   - **Montant dû** : 550€.
-   - **Délai de paiement** : 15 jours (si résiliation du prélèvement) **ou** à la prochaine facture (si résiliation de la mensualisation).
-   - **Moyens de paiement** : Préciser les options (CB, chèque, virement, etc.).
-   - **Conséquences en cas de non-paiement** : Mise en recouvrement, frais supplémentaires.
-
-4. **Annuler l’échéancier en cours** :
-   - **Ne pas maintenir les prélèvements** après la résiliation.
-   - **Clôturer l’échéancier** dans le système (date de fin : 25/10/25).
-
-5. **Proposer une aide en cas de difficultés** :
-   - Si le client évoque des problèmes financiers, l’orienter vers la procédure **P_NAT
+**Source(s) :**
+- *Procédure nationale Arrivée Client V8* | Sections :
+  - *"Conditions d’enregistrement d’un établissement public"* (cas "pas de relève").
+  - *"Schéma des aides à la décision arrivée client"* (critères de cohérence).
+  - *"Traitement de l’arrivée client le jour de son emménagement"* (étapes opérationnelles).
 
 ### Statistiques
 
@@ -522,45 +607,95 @@ Voici la **procédure à suivre** :
 
 **PRIMARY:**
 
-- PNATCLI11 Mensualisation et prélèvement automatique
+- Procedure nationale Arrivée Client V8
 
 ---
 
-## Question 10
+## Question 9
 
-**Query:** Le client appelle le 21/10/25 et souhaite résilier son contrat à la date du 23/09/2025 et nous envoie un état des lieux sortant ainsi qu’une photo du compteur au 23/09/25. Que dois-je faire ?
+**Query:** M XXXXXX envoie le message suivant : « Bonjour, Nous avons vendu le bien immobilier et la résiliation du contrat a été effectuée en ligne. Vous trouverez en pièce jointe la photo du compteur réalisée avant la vente. Nous restons à votre disposition pour toute régularisation éventuelle. Cordialement, M XXXXXX Mail : MAIL123@MAIL »
 
 ### Réponse
 
-**D'après le contexte fourni**, le client souhaite résilier son contrat **à une date antérieure à son appel (23/09/25)** et fournit des justificatifs (état des lieux sortant + photo du compteur). Voici la procédure à suivre :
+**D'après le contexte fourni, M. XXXXXX informe de la vente de son bien immobilier et de la résiliation en ligne de son contrat, tout en transmettant une photo du compteur. Voici la marche à suivre pour traiter cette demande :**
 
 ---
 
-### **1. Vérifier la recevabilité de la demande**
-- **Date de résiliation demandée (23/09/25)** :
-  - **Problème** : La résiliation ne peut pas être rétroactive. Le client reste redevable des consommations et abonnements **jusqu’à la date de sa demande effective** (21/10/25), sauf si :
-    - Il a **signalé son départ par écrit avant le 23/09/25** (ex. : courrier, email).
-    - La relève du compteur a été effectuée **par un technicien** à la date du 23/09/25 (fiche G2 remplie).
-  - **À faire** :
-    1. **Confirmer** si le client a déjà signalé son départ **avant le 23/09/25** (vérifier l’historique des contacts).
-    2. **Vérifier** si une **intervention technique (AT)** a été réalisée le 23/09/25 (fiche G2) :
-       - Si **oui** : La date de résiliation peut être fixée au 23/09/25.
-       - Si **non** : La résiliation prendra effet **à la date de la demande (21/10/25)**.
-
-- **Justificatifs fournis** :
-  - L’**état des lieux sortant** et la **photo du compteur** n’ont **pas de valeur juridique** pour une résiliation rétroactive (cf. procédure).
-  - **Exception** : Si la photo montre une **relevé de compteur lisible et daté**, elle peut servir de preuve pour une **régularisation ultérieure** (voir point 3).
+### **1. Vérification de la résiliation en ligne**
+- **Confirmer** que la résiliation a bien été effectuée via le canal en ligne (site web/portail client).
+  - Si **oui** : Passer à l’étape 2.
+  - Si **non** : Inviter le client à finaliser la résiliation en ligne ou proposer une assistance (ex. : lien vers la procédure).
 
 ---
 
-### **2. Traiter la résiliation**
-#### **Cas 1 : Résiliation possible au 23/09/25**
-- **Conditions remplies** :
-  - Preuve écrite du client **avant le 23/09/25** **OU** intervention technique (fiche G2) le 23/09/25.
-- **Actions** :
-  1. **Clôturer le contrat** à la date du 23/09/25.
-  2. **Ouvrir un Dossier ASI** (Arrêt de Service Immédiat) avec la branche **"Logement vacant"**.
- 
+### **2. Traitement de la pièce jointe (photo du compteur)**
+- **Vérifier la conformité de la photo** :
+  - **Index lisible** (chiffres clairs, sans flou).
+  - **Date visible** (doit correspondre à la période de vente).
+  - **Compteur identifiable** (numéro de série ou localisation si possible).
+- **Si la photo est valide** :
+  - **Enregistrer l’index** dans le système (fiche G2 ou outil dédié).
+  - **Déclencher la facture d’arrêt de compte** (régularisation des consommations jusqu’à la date de la photo).
+- **Si la photo est invalide** :
+  - **Demander une nouvelle photo** ou proposer un **rendez-vous d’intervention** (si le compteur est accessible).
+  - **Rappeler au client** : *Sans accès au compteur, le contrat reste actif et il reste redevable des factures.*
+
+---
+
+### **3. Clôture du contrat et régularisation**
+- **Finaliser la résiliation** :
+  - Vérifier que la **fiche G2** (retour d’intervention) est remplie dans le système.
+  - **Envoyer la facture d’arrêt de compte** (incluant la régularisation des consommations).
+- **Informer le client** :
+  - **Délai de traitement** : La facture sera émise sous **X jours** (préciser selon la procédure interne).
+  - **Paiement** : Le solde doit être réglé pour clôturer définitivement le contrat.
+
+---
+
+### **4. Gestion de l’assurance (si applicable)**
+- **Vérifier** si le client avait un contrat d’assurance avec **Homeserve** ou un partenaire.
+  - **Si oui** :
+    - **Proposer** la clôture du contrat ou son transfert (si le nouveau logement est dans une commune gérée par SEF).
+    - **Envoyer un courrier** à Homeserve pour formaliser la demande (modèle disponible dans la procédure).
+  - **Si non** : Ignorer cette étape.
+
+---
+
+### **5. Communication finale avec le client**
+**Exemple de réponse structurée** :
+---
+**Objet** : Confirmation de résiliation – Contrat [N° de contrat]
+
+Bonjour M. XXXXXX,
+
+Nous accusons réception de votre demande de résiliation suite à la vente de votre bien. Voici les prochaines étapes :
+
+1. **Photo du compteur** : Votre index a bien été enregistré. La facture d’arrêt de compte sera émise sous **5 jours ouvrés** et inclura la régularisation des consommations jusqu’au [date de la photo].
+2. **Assurance** : Votre contrat avec Homeserve a été signalé pour clôture. Vous recevrez un courrier de confirmation sous 10 jours.
+3. **Dernières démarches** :
+   - Veuillez régler le solde de la facture d’arrêt de compte pour finaliser la clôture.
+   - Conservez une copie de cette facture pour votre dossier de vente.
+
+Pour toute question, notre service reste à votre disposition au [numéro de contact].
+
+Cordialement,
+[Votre nom/prénom]
+[Poste]
+[Coordonnées du centre de relation client]
+---
+
+---
+
+### **6. Points de vigilance**
+- **Délais** : Respecter les échéances de traitement (ex. : envoi de la facture sous 5 jours).
+- **Preuves** : Archiver la photo du compteur et la confirmation de résiliation dans le dossier client.
+- **Relances** : Si le client ne répond pas aux demandes de régularisation, **escalader** au service recouvrement.
+
+---
+
+**Source(s)** :
+- Procédure Départ Client | **Traitement de la demande de résiliation d’abonnement** (Réf : P_NAT_CLI_13, Indice 8).
+- Procédure Départ Client | **Traitement du départ immédiat du client** (section "Accès au compteur").
 
 ### Statistiques
 
@@ -574,6 +709,363 @@ Voici la **procédure à suivre** :
 **PRIMARY:**
 
 - Procédure Départ Client
+
+---
+
+## Question 10
+
+**Query:** Mme YYYY envoie le message suivant : « Bonjour, Je vous fais parvenir la photo du compteur d’eau dans le cadre de mon nouveau contrat suite à  emménagement. Je vous remercie d’en accuser réception. Cordialement, Mme YYYY Mail : MAIL123@MAIL »
+
+### Réponse
+
+**D'après le contexte fourni**, Mme YYYY vous envoie une photo de son compteur d’eau dans le cadre de son **nouvel abonnement suite à un emménagement**. Voici les étapes à suivre pour traiter sa demande et accuser réception :
+
+---
+
+### **1. Accuser réception du message**
+**Réponse type à envoyer à Mme YYYY** :
+> *"Bonjour Mme YYYY,
+> Nous accusons réception de votre envoi concernant la photo du compteur d’eau pour votre nouveau contrat. Votre dossier est en cours de traitement et nous reviendrons vers vous sous 48h avec les prochaines étapes.
+> Cordialement,
+> [Votre prénom/nom]
+> Service Client [SUEZ]"*
+
+---
+
+### **2. Traitement du dossier (étapes métiers)**
+#### **A. Vérifications et saisies obligatoires**
+1. **Vérifier la cohérence de l’index** :
+   - Extraire l’index visible sur la photo du compteur.
+   - **S’assurer qu’il est lisible et plausible** (ex. : pas de chiffres incohérents comme "999999").
+
+2. **Saisir les données du dossier** :
+   - **Type de résidence** (maison, appartement, etc.).
+   - **Statut de l’occupant** (propriétaire, locataire, etc.).
+   - **Index du compteur** (celui transmis par Mme YYYY).
+   - **Date de l’abonnement** (date du jour ou date d’emménagement si précisée).
+
+3. **Vérifier le montant facturable** :
+   - **Doit correspondre à** : *"Frais d’accès au service avec déplacement"*.
+
+4. **Saisir un commentaire dans le dossier** :
+   - Format obligatoire :
+     > *"[Votre nom] – [Date du jour] : Abonnement – Index saisi : [valeur]. ID de compte : [copier l’ID]."*
+
+5. **Lancer la campagne "Résiliation compte"** (si applicable) :
+   - **Uniquement si** un ancien contrat existe pour le même logement (ex. : ancien occupant).
+
+---
+
+#### **B. Points de vigilance**
+- **Photo du compteur** :
+  - Vérifier que la photo est **nette et complète** (numéros lisibles, matricule du compteur visible si possible).
+  - **Si illisible** : Demander une nouvelle photo à Mme YYYY via un message structuré (voir modèle ci-dessous).
+    > *"Bonjour Mme YYYY,
+    > La photo transmise ne nous permet pas de lire clairement l’index du compteur. Pourriez-vous nous en envoyer une nouvelle, en veillant à ce que :
+    > - Les chiffres soient bien visibles.
+    > - Le matricule du compteur (situé en haut) soit inclus.
+    > Merci pour votre retour.
+    > Cordialement, [Votre nom]."*
+
+- **Cohérence des données** :
+  - Croiser l’index avec les **anciens relevés** (si disponibles) pour détecter d’éventuelles anomalies.
+
+---
+
+### **3. Finalisation**
+- **Envoyer un email de confirmation** à Mme YYYY une fois le dossier traité (ex. : activation du contrat, montant des frais).
+- **Archiver** la photo du compteur dans le dossier client.
+
+---
+
+**Source(s)** :
+- [20240711 - Rappel métier - Traitement Arrivée Départ avec AT | Saisir un commentaire dans le dossier]
+- [20240711 - Rappel métier - Traitement Arrivée Départ avec AT | Vérifier le montant facturable]
+- [20240711 - Rappel métier - Traitement Arrivée Départ avec AT | Vérifier la cohérence de l’index]
+
+### Statistiques
+
+- **Retriever:** VectorRetriever
+- **Chunks:** 4
+- **Contexte:** ~2036 chars
+- **Variantes:** 3
+
+### Documents Utilisés
+
+**PRIMARY:**
+
+- 20240711 - Rappel métier - Traitement Arrivée Départ avec AT
+
+---
+
+## Question 11
+
+**Query:** M XXXXXX envoie le message suivant : « Bonjour, Sauf erreur, je n’ai pas encore eu de retour concernant ma demande d’ouverture de contrat. Je vous remercie de bien vouloir vérifier l’état d’avancement de mon dossier. Cordialement, M XXXXXX Mail : MAIL123@MAIL Tél : 00123456789 »
+
+### Réponse
+
+**D'après le contexte fourni, M. XXXXXX sollicite un suivi sur sa demande d’ouverture de contrat d’eau/assainissement. Voici la démarche à suivre pour traiter sa requête :**
+
+---
+
+### **1. Vérification préalable du statut du client**
+- **Confirmer si M. XXXXXX est un professionnel ou un particulier** :
+  - *Demander* : *"Pourriez-vous me préciser si cette demande concerne un logement personnel ou un local professionnel ?"*
+  - **Si professionnel** : Récupérer les informations obligatoires (SIREN, code NAF) pour compléter le dossier (cf. [Procédure nationale Arrivée Client V8 | Traitement d’une information par anticipation]).
+  - **Si particulier** : Passer directement à l’étape 2.
+
+---
+
+### **2. Identification du dossier**
+- **Rechercher le dossier** dans l’outil interne via :
+  1. **Coordonnées fournies** : Mail (`MAIL123@MAIL`) ou téléphone (`00123456789`).
+  2. **Adresse complète** (à demander si absente) :
+     - *"Pour vérifier l’avancement, pourriez-vous me communiquer l’adresse exacte du logement concerné (numéro, rue, code postal, ville) ?"*
+     - Préciser : *"S’agit-il d’une maison ou d’un appartement ?"* (cf. [Procédure nationale Arrivée Client V8 | Identification]).
+
+- **Vérifier l’état du branchement** (cf. [Traitement de l’arrivée client le jour de l’emménagement]) :
+  - **Si compteur en télérelève** : Demander la **date d’entrée dans les lieux** ou d’achat du bien.
+  - **Si dossier DSI/ASI** : Créer un prospect si le dossier est ouvert.
+  - **Si dossier DEP** : Annuler l’AT (Accusé de Transmission) si nécessaire.
+
+---
+
+### **3. Informations obligatoires à communiquer**
+Conformément à la **loi Hamon** (cf. [Procédure nationale Arrivée Client V8 | PRINCIPES]), informer M. XXXXXX sur :
+- **Composition de la facture** (part eau et/ou assainissement).
+- **Prix de l’eau** : Frais d’accès au service, abonnement, consommation.
+- **Modalités de relève du compteur** (télérelève ou auto-relève).
+
+---
+
+### **4. Actions selon l’état du dossier**
+| **Situation**               | **Action**                                                                 |
+|-----------------------------|----------------------------------------------------------------------------|
+| **Dossier en cours**        | - Donner un **délai estimé** de traitement.                                |
+|                             | - Proposer un **suivi par email** (ex: "Nous vous enverrons un mail sous 48h"). |
+| **Dossier finalisé**        | - Confirmer l’ouverture du contrat.                                        |
+|                             | - Envoyer un **récapitulatif** (numéro de contrat, date de première facture). |
+| **Dossier non trouvé**      | - **Créer un nouveau dossier** avec les informations recueillies.          |
+|                             | - Vérifier si un **email automatique** (TSME) a été envoyé le jour de l’emménagement. |
+
+---
+
+### **5. Clôture de l’échange**
+- **Proposer une assistance complémentaire** :
+  *"Souhaitez-vous que nous vous envoyions un lien pour suivre votre consommation en ligne ?"*
+- **Remercier et confirmer** :
+  *"Nous avons bien pris en compte votre demande et vous tiendrons informé(e) sous [délai]. N’hésitez pas à nous recontacter pour toute question."*
+
+---
+
+**Source(s)** :
+- [Procédure nationale Arrivée Client V8 | Aide au discours arrivée client]
+- [Procédure nationale Arrivée Client V8 | Traitement d’une information par anticipation]
+- [Procédure nationale Arrivée Client V8 | Traitement de l’arrivée client le jour de l’emménagement]
+- Loi Hamon (2014) – [Section PRINCIPES]
+
+### Statistiques
+
+- **Retriever:** VectorRetriever
+- **Chunks:** 4
+- **Contexte:** ~2036 chars
+- **Variantes:** 3
+
+### Documents Utilisés
+
+**PRIMARY:**
+
+- Procedure nationale Arrivée Client V8
+
+---
+
+## Question 12
+
+**Query:** M XXXXXX envoie le message suivant : « Bonjour, Comme convenu par téléphone, je vous transmets l’attestation notariale d’acquisition ainsi  que la photo du compteur. Ces éléments sont transmis afin de permettre l’ouverture du contrat. Cordialement, M XXXXXX Mail : MAIL123@MAIL »
+
+### Réponse
+
+**D'après le contexte fourni**, M. XXXXXX a transmis une **attestation notariale d’acquisition** et une **photo du compteur** pour finaliser l’ouverture de son contrat. Voici la procédure à suivre pour traiter sa demande, en conformité avec la **Procédure nationale Arrivée Client V8** :
+
+---
+
+### ### 1. **Vérification des éléments transmis**
+- **Attestation notariale** :
+  - Confirmer qu’elle prouve bien l’acquisition du logement (propriétaire/locataire).
+  - Vérifier la cohérence des informations (adresse, identité du client).
+- **Photo du compteur** :
+  - **Index de relève** : Extraire le chiffre indiqué sur la photo.
+  - **Qualité de la photo** : Doit être lisible (pas de flou, lumière suffisante).
+  - **État du compteur** : Vérifier l’absence de signes de fraude ou de détérioration.
+
+---
+
+### ### 2. **Analyse de la relève transmise**
+**Règles applicables** (extrait de la procédure) :
+1. **Si l’index > 10 m³ par rapport au relevé de l’ancien occupant** :
+   - **Action** : Planifier un **RDV de contrôle** (frais de déplacement **à la charge du centre**).
+   - **Justification** : Risque de fuite ou erreur de transmission.
+2. **Si l’index est incohérent avec l’historique de consommation** (ex. : consommation anormalement basse/haute) :
+   - **Action** : Planifier un **RDV de contrôle** (frais de déplacement **à la charge du client**).
+   - **Exemple** : Un logement vacant depuis 6 mois avec une relève à 0 m³ est cohérent ; une relève à 50 m³ pour un studio occupé 1 mois ne l’est pas.
+3. **Si la relève est absente ou illisible** :
+   - **Action** : Demander une **nouvelle photo** au client (modèle de message ci-dessous).
+
+---
+
+### ### 3. **Étapes de traitement**
+1. **Enregistrer les documents** dans le système (Odyssee, TPMC, ou base des services) :
+   - Lier l’attestation et la photo au dossier client.
+   - Noter l’index de relève dans le champ dédié.
+2. **Évaluer la cohérence de la relève** :
+   - Comparer avec le **relevé de l’ancien occupant** (disponible via la vue 360° d’Odyssee).
+   - Croiser avec l’**historique de consommation** du logement (si disponible).
+3. **Décision** :
+   - **Si OK** : Valider l’ouverture du contrat et envoyer un accusé de réception (modèle ci-dessous).
+   - **Si RDV nécessaire** : Contacter le client pour planifier le contrôle (préciser les frais le cas échéant).
+   - **Si photo illisible** : Relancer le client pour une nouvelle transmission.
+
+---
+
+### ### 4. **Modèles de communication**
+#### **A. Accusé de réception (si documents valides)**
+> *Objet : Confirmation de réception de vos documents – Ouverture de contrat*
+> *Bonjour M. XXXXXX,*
+> *Nous accusons réception de votre attestation notariale et de la photo de votre compteur. Votre demande d’ouverture de contrat est en cours de traitement. Vous recevrez sous 48h un email de confirmation avec les détails de votre abonnement.*
+> *Cordialement,*
+> *[Votre nom] / Service Relation Client*
+
+#### **B. Demande de nouvelle photo (si illisible)**
+> *Objet : Complément nécessaire pour votre contrat*
+> *Bonjour M. XXXXXX,*
+> *Nous avons bien reçu votre photo de compteur, mais celle-ci n’est pas suffisamment lisible pour enregistrer votre relève. Pourriez-vous nous transmettre une nouvelle photo en veillant à ce que :*
+> *- Le cadran soit bien éclairé et net.*
+> *- Les chiffres de l’index soient clairement visibles.*
+> *Merci de nous renvoyer ce document par retour de mail pour finaliser votre dossier.*
+> *Cordialement,*
+> *[Votre nom]*
+
+#### **C. Information RDV (si frais à la charge du client)**
+> *Objet : RDV de contrôle pour votre compteur – Frais applicables*
+> *Bonjour M. XXXXXX,*
+> *Suite à l’analyse de votre relève, un RDV de contrôle est nécessaire pour valider votre index. Ce RDV engendrera des **frais de déplacement de [montant] €**, qui seront facturés sur votre première facture.*
+> *Voici les créneaux disponibles : [proposer 2-3 dates/horaires]. Merci de nous confirmer votre choix par retour de mail.*
+> *Cordialement,*
+> *[Votre nom]*
+
+---
+
+### ### 5. **Points de vigilance**
+- **Délai** : Traiter la demande sous **48h** pour respecter les engagements clients.
+- **Preuves** : Conserver les documents dans le dossier client (traçabilité en cas de litige).
+- **Frais** : **Ne jamais facturer de frais sans en informer le client au préalable** (conformément à la procédure).
+
+---
+
+**Source(s)** :
+- *Procédure nationale Arrivée Client V8* | Sections :
+  - "Conditions d’enregistrement d’un établissement public" (p. [non précisée]).
+  - "Schémas des aides à la décision arrivée client" (critères de relève).
+- *Base des services Odyssee* (vue 360° pour historique de consommation).
+
+### Statistiques
+
+- **Retriever:** VectorRetriever
+- **Chunks:** 3
+- **Contexte:** ~1527 chars
+- **Variantes:** 3
+
+### Documents Utilisés
+
+**PRIMARY:**
+
+- Procedure nationale Arrivée Client V8
+
+---
+
+## Question 13
+
+**Query:** Mme YYYY envoie le message suivant : « Bonjour, Je vous transmets les informations nécessaires à l’ouverture de mon contrat d’eau suite à mon  emménagement intervenu le 06/10/2025. Vous trouverez ci-dessous les informations du compteur ainsi que l’index relevé à la date  d’entrée. Je vous remercie de bien vouloir procéder à la mise en service du contrat. Cordialement, Mme YYYY Mail : MAIL123@MAIL Tél : 00123456789 »
+
+### Réponse
+
+**D'après le contexte fourni, Mme YYYY souhaite ouvrir un contrat d'eau suite à son emménagement le 06/10/2025 et transmet les informations nécessaires (index du compteur). Voici la procédure à suivre pour traiter sa demande :**
+
+---
+
+### **1. Vérification préliminaire**
+- **S’assurer que SEF (Service des Eaux de France) est bien en charge du contrat** pour l’adresse concernée :
+  - Consulter **TPMC** (outil de gestion des contrats) et/ou la **"base des services"** via le compte client **Odyssee** (écran vue 360°).
+  - **Rechercher l’adresse** via :
+    - Le **site** (adresse complète).
+    - Le **matricule du compteur** (si fourni par Mme YYYY).
+
+---
+
+### **2. Analyse de l’index transmis**
+- **Comparer l’index fourni par Mme YYYY** avec :
+  - L’**index de relève du prédécesseur** (ancien occupant).
+  - L’**historique de consommation** du logement (si disponible).
+
+#### **Cas possibles et actions associées** :
+1. **Index cohérent** (pas d’écart significatif) :
+   - **Enregistrer l’index** et **valider l’ouverture du contrat** sans intervention supplémentaire.
+
+2. **Index incohérent** (écart > 10 m³ ou non conforme à l’historique) :
+   - **Déclencher une intervention de relève** avec :
+     - **Frais à notre charge** si :
+       - L’index transmis est **supérieur de +10 m³** à celui de l’ancien occupant.
+     - **Frais à la charge du client** si :
+       - L’index est **incohérent avec l’historique de consommation** (ex. : consommation anormalement basse).
+
+3. **Pas de relève transmise** :
+   - **Proposer un RDV de relève** (frais selon les mêmes règles ci-dessus).
+
+---
+
+### **3. Ouverture du contrat**
+- **Créer le contrat** dans TPMC avec :
+  - Les **coordonnées de Mme YYYY** (mail : MAIL123@MAIL, tél : 00123456789).
+  - La **date d’emménagement** (06/10/2025).
+  - L’**index validé** (ou en attente de relève).
+- **Envoyer un accusé de réception** à Mme YYYY (par mail ou SMS) avec :
+  - La **confirmation de prise en compte** de sa demande.
+  - Les **étapes suivantes** (ex. : date de mise en service, RDV si applicable).
+  - Les **coordonnées du service client** pour suivi.
+
+---
+
+### **4. Suivi post-ouverture**
+- **Vérifier la cohérence des données** sous 48h (index, adresse, coordonnées).
+- **Informer Mme YYYY** en cas de :
+  - **Retard** dans la mise en service.
+  - **Frais supplémentaires** (si applicable, avec justification).
+
+---
+
+### **Points d’attention**
+- **Urgence** : Si Mme YYYY signale un besoin immédiat en eau, **prioriser le traitement** et proposer une solution temporaire (ex. : mise en service sous 24h avec relève ultérieure).
+- **Documentation** : Joindre le **livret d’accueil** (mentionné dans la procédure) au premier courrier/facture.
+
+---
+
+**Source(s)** :
+- *Procédure nationale Arrivée Client V8* | Sections :
+  - **6.2 Traitement de l’arrivée du client le jour de son emménagement** (Page 6/18).
+  - **Schémas des aides à la décision arrivée client** (Conditions de relève incohérente).
+
+### Statistiques
+
+- **Retriever:** VectorRetriever
+- **Chunks:** 4
+- **Contexte:** ~2036 chars
+- **Variantes:** 3
+
+### Documents Utilisés
+
+**PRIMARY:**
+
+- Procedure nationale Arrivée Client V8
 
 ---
 
